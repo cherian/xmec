@@ -1,0 +1,8 @@
+DirectoryIndex guestbook.html index.html index.htm index.cgi
+
+<Files *.pl>
+SetHandler cgi-script
+</Files>
+
+ExpiresActive On
+ExpiresDefault A5

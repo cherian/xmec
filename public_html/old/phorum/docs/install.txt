@@ -1,0 +1,214 @@
+Phorum Installation Instructions
+Version 3.3+
+
+Contents
+=========
+1. Uncompressing the file
+
+2. Securing the settings and admin
+   a) What and Why
+   b) Using the bash script to secure Phorum
+   c) Doing it by hand
+
+3. Running the install script (not install.sh)
+
+4. Using attachments (file uploads)
+
+5. Assigning moderators
+
+6. Getting Help
+
+
+1. Uncompressing the file
+--------------------------
+
+Since this file in in the package you most likely already have done this.
+
+Once you have downloaded the file you need to uncompress it.  If you got the
+zip file, you probably are on Windows and know how to do it.  For those on
+*nix who may have downloaded one of the tar packages, consult the tar man page
+for specifics.  A quick explination for the different ones is:
+
+for phorum-3.x.tar.gz:
+> tar -xzf phorum-3.x.tar.gz
+
+for phorum-3.x.tar.bz2:
+> tar -xIf phorum-3.x.tar.bz2
+
+Once you are done you should have a directory called phorum-3.x.  Switch to it
+and read ahead.
+
+
+2. Securing the settings and admin
+------------------------------------
+
+a) What and Why
+
+Before I tell you what to do, let me explain why you need to do it. There
+are two people you need to protect your file from: people on your server and
+people outside your server.
+
+ - Virtual (shared) Sites
+
+If you have a dedicated server you don't need to read this part.  If you have
+a virtually hosted web site, also known as shared hosting, there are other
+people that have a login for the server your files are on.  These people could
+in theory read your files using either their shell login or a PHP, Perl or
+other script they write.  Hopefully they won't but they might.
+
+The best way to protect yourself in this case is to use a hosting service that
+allows you full control over your Apache configuration and allows you to run
+the web server under your username.  This way all the files can be owned by
+you and only your user can access them.
+
+Next would be finding a host that uses the safe mode feature of PHP.  This
+feature will restrict access to files based on the username of the executing
+script.  This will protect you against others writing PHP scripts to crack
+your files.
+
+Hosts can also use what is known as SQL safe mode.  This means that the
+database connection does not take a user name or password.  Instead, it reads
+the user name of the file executing the script and uses it to connect.  This
+means that only files you create can access your database.
+
+Another good method for protecting your PHP files is to wrap your scripts with
+a tool like CGIWrap <http://cgiwrap.unixtools.org/>.  This topic however goes
+beyond the scope of this document and more into server adminstration.
+
+One good thing to remember is that if someone on your server is getting into
+your files, you need to report them and if you are using an upstanding host,
+that user will be kicked off.
+
+ - Web Protection
+
+The other concern is users on the web seeing your settings by requesting them
+in a browser.  This is not a big a deal as it first sounds.  All the files in
+Phorum are parsed by the PHP engine.  This means that when they are requested
+they are parsed and the output, not the contents are sent to the browser.
+
+This could be a problem if the file extension your host uses for PHP is not
+the same as what Phorum is using.  However, the full name of the settings file
+can be changed in common.php.
+
+Having said that, there is no real good reason to leave your configuration
+files where they could be requested from the web.  We reccomend moving the
+settings dir to a location that is not under your web directory (often called
+www, htdocs or public_html).
+
+You can optionally also tell the web server not to server pages from certain
+directories.  With Apache this is done with the Deny directive.
+
+
+b) Using the bash script to secure Phorum.
+
+If you look in the scripts directory of your Phorum installation you will find
+a file called 'secure'.  You can run this file by switching to the Phorum base
+directory and running the script like:
+
+> bash scripts/secure
+
+The script will ask you a few questions and then move your files, set the
+permissions on the files and directories and can also add .htaccess files
+where they can help.  If you have a system where you can use bash I reccomend
+doing this.
+
+
+c) Doing it by hand.
+
+If you don't have access to bash there is still hope.  Nothing that script
+does cannot be done the old fashioned way.  Here are the basic steps you need
+to take to achieve the same thing the script does.
+
+    1) Move the admin/settings dir outside the web tree.
+
+        eg. When you log in to your web server, you are put into your home
+        directory.  Lets say it is /home/foo.  In that directory there is
+        another dir called htdocs.  htdocs is where all of your web files
+        live.  What you will want to do is create a dir in /home/foo called
+        phorum_settings.  You will then need to set the permissions on this
+        dir to allow the web server to write to it.  On most servers this
+        means giving read, write and execute access to the world (public).
+        Some server have the web server running as the same group as the
+        users.  If you know this is the case or setting the world permissions
+        does not work for you, try setting the group permissions to read,
+        write and exec.
+
+        Once you have the permissions set, copy or move the existing
+        forums.php file from admin/settings to /home/foo/phorum_settings.  You
+        will also need to set the permissions on this file.  Allow read and
+        write access to either group or world depending on your server set up.
+
+        The last thing here is to change the variable at the top of common.php
+        to point to the new directory.  By default it looks like this:
+
+          $settings_dir="./admin/settings";  // no ending slash
+
+        You would change it to look like this:
+
+          $settings_dir="/home/foo/phorum_settings";  // no ending slash
+
+    2) Rename the admin directory.
+
+        One of the simplest things you can do to keep people from trying to
+        hack into your admin is rename it.  Simply change the name.  Make it
+        something silly like your dog's name.  Phorum will adapt.
+
+    3) Use the web servers security.
+
+        Your web server should have the ability to block access to a directory
+        or file.  For Apache this is done by use the Deny directive such as:
+
+        Deny from all
+
+        If that was put in a .htaccess file or inside a Directory directive in
+        httpd.conf (you may not have access to httpd.conf) no files from that
+        directory would be served.  You can do this for every directory in
+        Phorum accept images and admin.
+
+
+3. Running the install script
+------------------------------
+
+Now that the files are ready, run the install script.  Point your web browser
+at your admin where ever you put it.  The admin knows that the install is in
+progress and will ask you some questions.  It is pretty self explanitory.
+
+Once the install process is done, click the link to go the admin and login
+using the username and password you provided to the install script.
+
+
+4. Using attachments (file uploads)
+------------------------------------
+
+If you want to allow your users to upload files to your server along with
+their posts there are a couple of extra things you need to do.
+
+    1) Create a directory where the attachments will be stored.
+
+        You might want to create a directory such has /home/foo/attachments.
+        You will need to set the permissions on this directory the same as you
+        did the settings one as Phorum will need to write to it.
+
+    2) Go to the admin and set your Attachment Settings.
+
+
+5. Assigning moderators
+------------------------
+
+Phorum now allows for multiple moderators per forum.  Using the User Admin,
+you can allow users who have created a profile using the register.php to be
+moderators.  When they log in to the admin they will be sent to a moderator
+page where they will only have access to moderation tools.  Also, when they
+are logged into the forums, links to edit or delete posts will appear with
+each message.
+
+The forums have to be created and the user has to have a profile before this
+can happen.
+
+
+6. Getting Help
+----------------
+
+If you still can not get Phorum installed, come to http://phorum.org/support/
+and ask your question.  Please be sure and tell us exactly what did not work
+for you.

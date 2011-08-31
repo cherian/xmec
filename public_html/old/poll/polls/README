@@ -1,0 +1,14 @@
+phpPolls 1.0.3 - A voting booth for PHP3
+
+Copyright (c) 1999 by Till Gerken
+The initial version (1.0.0) was sponsored by uRoam, Inc.
+
+phpPolls is a PHP3 script that allows you to easily include a voting booth
+into your web page. phpPolls' features include setup, maintenance, conducting
+and viewing/listing polls. Its straight-forward API and sample snippets
+make integration into your site as easy as pie.
+
+Hosted at http://www.phpwizard.net/phpPolls
+
+This program and all associated files are released under the GNU Public License,
+see gpl.txt for details!

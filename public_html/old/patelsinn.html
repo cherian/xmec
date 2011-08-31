@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<LINK rel=stylesheet href="style.css" type="text/css">
+<script>
+
+//Thumbnail image viewer- 
+//© Dynamic Drive (www.dynamicdrive.com)
+//For full source code, usage terms, and 100's more DHTML scripts, visit http://www.dynamicdrive.com
+
+var ie=document.all
+var ns=document.layers
+var ns6=document.getElementById&&!document.all
+
+function enlarge(which,e){
+//Render image code for IE 4+ and NS6
+if (ie||ns6){
+crossobj=document.getElementById? document.getElementById("showimage") : document.all.showimage
+if (crossobj.style.visibility=="hidden"){
+crossobj.style.left=ns6? pageXOffset+e.clientX : document.body.scrollLeft+event.clientX
+crossobj.style.top=ns6? pageYOffset+e.clientY : document.body.scrollTop+event.clientY
+crossobj.innerHTML='<div align=right id=drag><b onClick=closepreview()>X</b></div><img alt="Please wait for Image to Load" src="'+which+'">'
+crossobj.style.visibility="visible"
+}
+else
+crossobj.style.visibility="hidden"
+return false
+}
+//Render image code for NS 4
+else if (document.layers){
+if (document.showimage.visibility=="hide"){
+document.showimage.document.write('<a href="#" onMouseover="drag_dropns(showimage)"><img src="'+which+'" border=0></a>')
+document.showimage.document.close()
+document.showimage.left=e.x
+document.showimage.top=e.y
+document.showimage.visibility="show"
+}
+else
+document.showimage.visibility="hide"
+return false
+}
+//if NOT IE 4+ or NS 4, simply display image in full browser window
+else
+return true
+}
+
+function closepreview(){
+crossobj.style.visibility="hidden"
+}
+
+</script>
+
+
+<script language="JavaScript1.2">
+
+//By Dynamicdrive.com
+
+//drag drop function for NS 4////
+/////////////////////////////////
+
+var nsx,nsy,nstemp
+
+function drag_dropns(name){
+temp=eval(name)
+temp.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP)
+temp.onmousedown=gons
+temp.onmousemove=dragns
+temp.onmouseup=stopns
+}
+
+function gons(e){
+temp.captureEvents(Event.MOUSEMOVE)
+nsx=e.x
+nsy=e.y
+}
+function dragns(e){
+temp.moveBy(e.x-nsx,e.y-nsy)
+return false
+}
+
+function stopns(){
+temp.releaseEvents(Event.MOUSEMOVE)
+}
+
+//drag drop function for IE 4+ and NS6////
+/////////////////////////////////
+
+function drag_drop(e){
+if (ie&&dragapproved){
+crossobj.style.left=tempx+event.clientX-offsetx
+crossobj.style.top=tempy+event.clientY-offsety
+}
+else if (ns6&&dragapproved){
+crossobj.style.left=tempx+e.clientX-offsetx
+crossobj.style.top=tempy+e.clientY-offsety
+}
+return false
+}
+
+function initializedrag(e){
+if (ie&&event.srcElement.id=="drag"||ns6&&e.target.id=="drag"){
+offsetx=ie? event.clientX : e.clientX
+offsety=ie? event.clientY : e.clientY
+
+tempx=parseInt(crossobj.style.left)
+tempy=parseInt(crossobj.style.top)
+
+dragapproved=true
+document.onmousemove=drag_drop
+}
+}
+
+document.onmousedown=initializedrag
+document.onmouseup=new Function("dragapproved=false")
+
+
+</script>
+</HEAD>
+<BODY topmargin=0 leftmargin=0 marginheight = "0" marginwidth = "0" bgcolor="#ffffff">
+<div id="showimage" style="position: absolute; visibility: hidden; left: 0; top: 0; width: 763; height: 19; border: 1px solid black"></div>
+<TABLE BGCOLOR="white" align=left border=0 cellPadding=0 cellSpacing=0 width="615" height="100%">
+<TR>
+<TD valign=top width=615><BR>
+</TR>
+<TR>
+<TD valign=top width=445><BR><BR>
+<TABLE align=center BORDER=0 cellpadding=5 cellspacing=0 bordercolor="#dddddd" WIDTH="435">
+<TR><P><strong>XMEC Bangalore Chapter Get Together at Patel's Inn</strong></P>
+<P><strong>Date : Sunday, 18<sup>th</sup> May, 2003</strong></P>
+<P><strong>Time : 10am to 5pm</strong></P>
+<P>The get together will include a buffet lunch and tea apart from a welcome drink in the morning. XMEcians can use the various facilities like shuttle courts, swimming pool, tennis court, basketball court, snooker table. Patels Inn will be offering a discounted rate of Rs 80 for the Go-Karting facility. There will be other entertaining games with prizes for the lucky winners .Please do not forget to bring your swim wear and cap if you plan to use the swiming pool. Bring in your cricket bats, volley ball and racquets</P>
+<P>There are BMTC buses ( Route No 107C ) from Shivaji Nagar that stop very close to the resort(near Telephone Exchange). Apart from that there are frequent buses to RT Nagar.One can get down at the RT Nagar BDA stop and take an auto rickshaw to the resort.</P>
+<BR>
+<P><a href="images/gallery/route.gif" onclick="NewWindow(this.href,'RouteMap','600','450','yes');return false"><font face=arial size=2 color="#330099">Routemap to Patel's Inn</font></a></P>
+<BR>
+<P><strong>Snapshots of the Patel's Inn Resort</strong></P>
+</TR>
+<TR>
+<TD align=middle><a href="images/gallery/lobby.jpg" onClick="return enlarge('images/gallery/lobby.jpg',event)"><img alt="Entrance to the Resort" src="images/gallery/th_lobby.jpg" border="1"></a> <a href="images/gallery/play.jpg" onClick="return enlarge('images/gallery/play.jpg',event)"><img alt="Children's Play Area" src="images/gallery/th_play.jpg" border="1"></a> <a href="images/gallery/pool.jpg" onClick="return enlarge('images/gallery/pool.jpg',event)"><img alt="Swimming Pool" src="images/gallery/th_pool.jpg" border="1"></a> <a href="images/gallery/shuttle.jpg" onClick="return enlarge('images/gallery/shuttle.jpg',event)"><img alt="Shuttle Courts" src="images/gallery/th_shuttle.jpg" border="1"></a></TD>
+</TR><BR><BR><BR>
+<TR>
+<TD align=middle><a href="images/gallery/track.jpg" onClick="return enlarge('images/gallery/track.jpg',event)"><img alt="Go-Karting Track" src="images/gallery/th_track.jpg" border="1"></a> <a href="images/gallery/gnd.jpg" onClick="return enlarge('images/gallery/gnd.jpg',event)"><img alt="Tennis Ground" src="images/gallery/th_gnd.jpg" border="1"></a> <a href="images/gallery/hall.jpg" onClick="return enlarge('images/gallery/hall.jpg',event)"><img alt="Party Hall" src="images/gallery/th_hall.jpg" border="1"></a> <a href="images/gallery/lawn.jpg" onClick="return enlarge('images/gallery/lawn.jpg',event)"><img alt="Lawn" src="images/gallery/th_lawn.jpg" border="1"></a></TD>
+</TR>
+<BR>
+<TR>
+</TR>
+</TABLE>
+</TD>
+
+<TR>
+<TD colspan=2>
+      <TABLE align=center border=0 cellPadding=0 cellSpacing=0 width="100%">
+          <TR>
+			<TD align=middle height=30 valign=bottom><font face=arial size=-1 color="#999999">Site Powered by &nbsp;<A href="http://www.marlabs.com"><IMG align=absMiddle border=0 src="images/marlabs.jpg"></A> &nbsp;© Copyright 2001</font></TD>
+		</TR>
+      </TABLE>
+</TD></TR>
+</TABLE> 
+</BODY>

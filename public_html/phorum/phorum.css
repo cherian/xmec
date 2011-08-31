@@ -1,0 +1,129 @@
+BODY
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+TD
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+TR
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+P
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+UL
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+OL
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+LI
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+INPUT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+SELECT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+DL
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+DD
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+DT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+FONT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px
+}
+.PhorumBodyArea
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px;
+    WIDTH: 500px
+}
+/*.PhorumListTable
+{
+    BORDER-BOTTOM: #5482b2 4px groove;
+    BORDER-LEFT: #5482b2 4px groove;
+    BORDER-RIGHT: #5482b2 4px groove;
+    BORDER-TOP: #5482b2 4px groove
+}
+border:unknown 1 Outset border-color:unknown #5482B2 .PhorumListRow
+{
+    /*BORDER-BOTTOM: #5482b2 4px groove;
+    BORDER-LEFT: #5482b2 4px groove;
+    BORDER-RIGHT: #5482b2 4px groove;
+    BORDER-TOP: #5482b2 4px groove;*/
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px;
+    HEIGHT: 21px
+}*/
+.PhorumListHeader
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 14px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 24px
+}
+/*.PhorumForumTitle
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 24px;
+    FONT-WEIGHT: bold
+}*/
+
+.PhorumTableHeader
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold
+}
+.PhorumNav
+{
+    FONT-FAMILY: Geneva, Verdana, MS Sans Serif , Clean, sans-serif;
+    FONT-SIZE: 10px
+}
+.PhorumNewFlag
+{
+    COLOR: blue;
+    FONT-FAMILY: Geneva, Verdana, MS Sans Serif , Clean, sans-serif;
+    FONT-SIZE: 10px
+}
+.PhorumMessage
+{
+    FONT-FAMILY: Geneva, Verdana, MS Sans Serif , Clean;
+    FONT-SIZE: 10px
+}
+.PhorumForumTitle
+{font-family:verdana; font-size:10px; color:#0000FF;font-weight:regular; text-decoration:none;}
+.PhorumForumTitle:hover
+{font-family:verdana; font-size:10px; color:#0000FF;font-weight:regular; text-decoration:underline;}
+

@@ -1,0 +1,50 @@
+<?php
+$secure_page=0;
+$this_page = "gallery";
+include '/usr162/home/x/m/xmec/public_html/header.php';
+?>
+<html>
+<head>
+<title>XMEC Career Jumpstart</title>
+</head>
+<body>
+<center>
+<h1>Careers from XMEC</h1>
+</center>
+<P>XMECians can post Job openings and referrels. XMECians can <a href="addguest.html"> post</a> to this Career Section or can send a mail to xmec-jobs@yahoogroups.com</P
+<hr>
+<!--begin-->
+<b>fgdfgdfg</b><br>
+<a href="http://fdgfd">gdg</a> &lt;<a href="mailto:fdgdf">fdgdf</a>&gt;<br>
+fdgf, USA - Friday, March 26, 2004 at 16:21:39 (PST)<hr>
+
+<b>Testing</b><br>
+<a href="http://www.xmec.met">Test</a> &lt;<a href="mailto:ro@rerw.cmm">ro@rerw.cmm</a>&gt;<br>
+fdsf, sfsdf USA - Tuesday, November 11, 2003 at 02:55:47 (PST)<hr>
+
+<b>Testing</b><br>
+<a href="http://addr.com">test</a> &lt;<a href="mailto:test@addr.com">test@addr.com</a>&gt;<br>
+ USA - Tuesday, November 11, 2003 at 02:52:23 (PST)<hr>
+
+<b>Dan Boston is a fool !!!</b><br>
+Robin Williams <<a href="mailto:robin@serena-williams.org">robin@serena-williams.org</a>><br>
+South Africa - Friday, August 08, 2003 at 09:13:48 (PDT)<hr>
+
+<b>Useless site</b><br>
+Dan Boston <<a href="mailto:dan@atoga.com">dan@atoga.com</a>><br>
+USA - Friday, August 08, 2003 at 06:37:05 (PDT)<hr>
+
+<b>Test</b><br>
+Robi Thomas <<a href="mailto:robit@fds.com">robit@fds.com</a>><br>
+India - Friday, August 08, 2003 at 06:18:03 (PDT)<hr>
+
+<hr>
+<ul>
+<li><a href="../">Back to My Home Page</a><br>
+<li>
+</ul>
+</body>
+</html>
+<?php
+include '/footer.php';
+?>

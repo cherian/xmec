@@ -1,0 +1,293 @@
+Phorum 3.3.2a Changelog
+------------------------------------------------------------
+fixed regex in read_functions.php that was causing errors. (blm)
+
+Phorum 3.3.2 Changelog
+------------------------------------------------------------
+removed where clause on max query.  It was slowing things down with lots of messages and it really is not needed. (blm)
+added missing checks in attach.php. (ts)
+fix for missing $GetVars on some links. (ts)
+fix for wrong bold marking of moderator. (ts)
+fix for search returning only a part of the results. (blm)
+fix for moderators post not approved. (blm)
+added JS for disabling duplicate posts. (blm)
+fixed some problems with the upgrade of attachments in mysql (from Scott Sneddon). (ts)
+fixed bug with using just default colors for the register-form. (ts)
+made the "go to post" work if you are in threaded view but flat view on posts. (ts)
+fine grain "show IP" control, on always or on for anonymous posters. (ts)
+fixed bug where $phorum_user used when not set. (blm)
+fixed bug where bold tags would not be removed from subject and author before being used in the form. (blm)
+
+Phorum 3.3.1a Changelog
+------------------------------------------------------------
+fix for warning in login.php (ts)
+fix for wrong "back" link in list.php (blm)
+blank-language-file updated to contain all vars (ts)
+of in search.php changed to lang-var (ts)
+fix for "go to top" (ts)
+fix for admin-/user-login (ts)
+
+Phorum 3.3.1 Changelog
+------------------------------------------------------------
+fixed delete message for moderators.  It was not in the lang file (blm)
+better marking of moderators in thread list. (blm)
+set older messages so it always shows now. (blm)
+removed old docs. (blm)
+Fixed some browser display issues for the admin. (nld/blm)
+Fixed some CSS and XHTML issues (blm + others)
+fixed html tags that appeared in the edit window. (blm)
+Fixed bug when deleting a post and you were put to an edit screen. (blm)
+fixed font and anchor tags that were not getting closed.
+added new function to inlcude header and footer instead of having dup'd code. (blm)
+converted the password storage to md5 instead of crypt. (blm)
+created new login function to make login code simpler (blm)
+fixed admin login so it does not step on forums login. (blm)
+fixed search bug when searching all forums. (blm)
+fixed security hole that allowed non-logged in users to read forums marked Login To Read. (blm)
+added DTD to admin/header.php for picky browsers (nld)
+added switch for reply-checkbox for anonymous posters (ts)
+look for both $SCRIPT_FILENAME and $PATH_TRANSLATED in admin. (blm)
+Added the icons provided by Rich Davey for the messengers. (blm)
+Bug fixes that were left from 3.3.0. (blm)
+
+Phorum 3.3.0 Changelog
+------------------------------------------------------------
+fixed potential security issue with malicious user input. Thanks Alexey Polushin. (blm)
+fixed some language selection bugs. (blm)
+added delete confirmation for forum moderators. (md)
+fixed numerous problems in upgrade_pg installation. (md)
+fixed install script for postgresql. (md)
+added idea given to me by Scott Sneddon for making read.php reply to the right message. (blm)
+--RC2--
+fixed a bug in check dup that was causing it to only look in the last two minutes. thanks Neil Darlow (blm)
+--RC1--
+Reworked the backend a lot to make install easier (blm)
+Added moderator-support to the forum itself (ts)
+Changed profile-link to show the IP too (ts)
+Added UserAdmin to admin. (ts)
+Added admin-configurable <body ...>-colors. (ts)
+Added option to hide IP in read view. (ts)
+Added user profile support. (vulpes)
+Fixed two security issues thanks to Alexey Polushin. (blm)
+Added some new stuff to install.sh (blm)
+Updated license to a true Apache-Style License.  (blm)
+Changed admin so it does not use the admin_url which made the admin not work if moved. (blm)
+Added user login support. (blm)
+Converted entire app to CSS.  No more font tags for sizes and faces, only colors that are set in the admin. (blm)
+Added multiple file upload support. (blm)
+Removed mssql and sybase files from distro. No support. (blm)
+Changed install.sh to point at bash instead of sh. (blm)
+Fixed style sheet. (blm)
+Better trapping and display of db errors in admin. (blm)
+Added error checking for table names. (blm)
+Put in measures to decrease orphan posts. (blm)
+Fixed possible extra \ in the post form on error. (blm)
+Fixed Newer Messages not scrolling right when collapsed. (blm)
+Fixed some binary attachments not downloading right. (blm)
+Fixed attachment getting dropped on editing messages. (blm)
+Fixed problems with port getting messed up with mysql. (blm)
+Fixed ' not being excaped in search. (blm)
+Fixed reset errors in read.php (blm)
+Added salt to crypt function in register and login. (blm)
+Added code to mysql.php to create user table. (blm)
+Added function_exists to all db modules. (blm)
+Fixed mkdir line in install.sh (blm)
+Roll in fixes from 3.2.6 -> 3.2.12 (jcb)
+Fixed alter table on forums table for auto_inc (blm)
+Added simple news.php to scripts folder for using phorum to store news articles. (scv)
+Added rudimentary support for float-to-top. (jcb)
+Removed \r strip from phorummail.  post.php does it now. (blm)
+Added a line to the post function that will strip \r (blm)
+fixed my_nl2br.  Not sure what was wrong. (blm)
+fixed mkdir in install script (blm)
+fixed bug in search page where first page total does not match other pages. (blm)
+Took my email address out of Phorummail. Doh! (blm)
+Fixed mkdir line in install.sh (blm)
+Doing the below fixed some HTML errors. (blm)
+Reorganized the navigation system. Should be easier for users to edit the nav menus now. (blm)
+Added feature to change TZ in admin (global config) instead of in the lang file (scv)
+
+Phorum 3.2.12 Changelog
+------------------------------------------------------------
+Fix phorummail error - no bodies?  (djw)
+
+Phorum 3.2.11 Changelog
+------------------------------------------------------------
+Fix problem with folders not displaying properly (from Dirk Jansen) (jcb)
+Fix problem with the way blankset.php was resetting the per-forum variables (jcb)
+Change wording and fix bug in delete by date code. (jcb)
+
+Phorum 3.2.10 Changelog
+------------------------------------------------------------
+Fix problems that users were having with admin not working. (jcb)
+Fix problem with thread not getting assigned properly in the _bodies table.  (jcb)
+Add the config_suffix to upgrade.php and upgrade_pg.php to support an early version 3.1 (jcb)
+Add security fix to prevent changing of admin password in default installation. (jcb)
+
+Phorum 3.2.9 Changelog
+------------------------------------------------------------
+Fixed download.php exploit, and add additional security checks (blm)
+
+Phorum 3.2.8 Changelog
+------------------------------------------------------------
+Fixed second vulnerability. (blm)
+
+Phorum 3.2.7 Changelog
+------------------------------------------------------------
+Add minor table structure fix for postgres 6.5 support. (jcb)
+Fixed some security holes in the File Attach procedure. (blm)
+Add upgrade script for postgres users of 3.1+ (jcb)
+Add security fix. Ouch. (jcb)
+Hopefully fix the "Drop Forum" bug. (jcb)
+Roll in Brian's fixes for upgrade script. (jcb)
+Roll in Brian's fixes for \r\n and for search results from the 3.3 tree (jcb)
+Roll in Brian's fix to the install script from the 3.3 tree (jcb)
+
+Phorum 3.2.6 Changelog
+------------------------------------------------------------
+Fixed all of the distributed files that include whitespace. (jcb)
+Changed Replace plugin to use str_replace instead of eregi_replace (jcb)
+
+Phorum 3.2.5 Changelog
+------------------------------------------------------------
+Fixed bug that occurred when dropping a forum. (jcb)
+Removed logic for changing the table name of an existing forum.  Destructive, non-recoverable.  Re-implement later. (jcb)
+Remove the increased error_reporting.  We still use it internally, but it causes too much grief for end users. (jcb)
+Try to reduce discrepancy between widths of reply textarea between NS and IE. (jcb)
+Fix bug where recentadmin didn't work if $pho_main was set to alternate name.(jcb)
+Remove second instance of $myname declaration in admin/login.php (jcb)
+Add conf file write when creating forum.  Allows redirect to work correctly when only one forum (jcb)
+Fix delete message bug. (jcb)
+Fix bug in advsearch when no results. (jcb)
+
+Phorum 3.2.4 Changelog
+------------------------------------------------------------
+Move away from the cursed 3.2.3 version number (jcb)
+Fix bug in edit mode for messages.  Affected file: admin/pages/edit.php (jcb)
+
+Phorum 3.2.3b Changelog
+------------------------------------------------------------
+Fix release.  There was a bug and PHP4-specific construct
+in the main index.php file that manifested itself only when
+you had a single active forum. This sub-letter release
+is just to avoid confusion.
+
+Phorum 3.2.3a Changelog
+------------------------------------------------------------
+Fix release.  The CVS tag for 3.2.3 was not applied properly
+to admin/index.php and a bug remained.  This sub-letter release
+is just to avoid confusion.
+
+Phorum 3.2.3 Changelog
+------------------------------------------------------------
+removed nowrap on subject column. (blm)
+Remove REGISTER_GLOBALS hack to a separate file (jcb)
+Upgrade script was only updating the first table. (blm)
+Fixed t_maxid error. (blm)
+Removed PHP4 specific code. (blm)
+Secured the drop forum function.  if someone hacked the code, it was possible to have rm -rf / be executed. (blm)
+
+Phorum 3.2.2 Changelog
+------------------------------------------------------------
+using $admin_url now for admin links. (blm)
+fixed search issues with PG. (blm)
+improved install and upgrade scripts (blm)
+fixed bug when there was only one active folder and no forums. (blm)
+added code to handl no register_globals (blm)
+fixed paths to images in multi-level.php (blm)
+Added some things to the .lang files. (blm)
+Added white on black tree images. (blm)
+Made forums Visible by default.  A lot of people trip on that. (blm)
+Changed wording in admin from Activate/Deactivate to  Visible/Hidden. (blm)
+Added multi-forum search (advsearch.php).  Not in by default. (blm)
+Added new forum_list.php script. (blm)
+fixed error when editing but no attachment. (blm)
+Fixed some SQL in index.php (blm)
+Fixed mark read errors on empty forums. (blm)
+The install.sh script was using some BSD only stuff. (blm)
+Fixed bug with $uploadDir not being global in admin/index.php. (blm)
+Fixed quote issue in name, email, subject in form.php. (blm)
+Fixed some url bugs in the admin. (blm)
+Added note about safe mode to database settings page. (blm)
+Fixed undefined variable in login.php (blm)
+Getting rid of mysql sequence crap.  I am sorry I ever came up with it. (blm)
+Increased length of subject and email fields. (djw)
+Added a per-forum setting for "Mailing List Tag" - the [tag] added to the subject by many mailing list managers. (djw)
+Added a global setting for "PhorumMail Code" - should be unique per installation to prevent different Phorum installations from using each others' X-headers. (djw)
+Removed [forum:thread:parent] from subject lines. (djw)
+Moved much code from post.php into separate file where it can be included by phorummail. (djw)
+When "Mailing List Address" is set for a forum, posts are sent to the list instead of being added to the database.  They get added to the database when they arrive from the mailing list via PhorumMail. (djw)
+Implemented threading based on X-headers, subject, message ID, reply-to, etc.  (djw)
+Added "Admin URL" to file/path settings to make it easier to move the admin files away from the default location. (djw)
+changed error_reporting to use constant instead of number I pulled out of the air (blm)
+added chop() for email in read.php (blm)
+changed mssql.php to mssql6x.php to avoid confusion. (blm)
+added support for servers that do not register globals. (blm)
+Made bodies searched by default. (blm)
+Removed "No Posts" from the index.php. (blm)
+removed dumb MSOE comment from sybase.php. bad MS. (blm)
+
+Phorum 3.2.1 Changelog
+------------------------------------------------------------
+allow uploads could not be changed in props page. (blm)
+
+Phorum 3.2.0 Changelog
+------------------------------------------------------------
+Fixed post to not include header and footer if included in PhorumMail. (blm)
+Added recentadmin module, coded by Boban Acimovic <acim@mbl.is>. (blm)
+Fixed parse error in plugin.php. (blm)
+Modified the database selection so it would work nice with other apps that did not do it right. (phpAds) (blm)
+Made admin database message more informative. (blm)
+Activated the attachment SQL. (blm)
+Added sybase/sql server support Done by Phil Anderson <phila@365.co.uk> (blm)
+Added quick_list.php script. (blm)
+fixed mysql.php so that it would connect correctly in safemode. (blm)
+rewrote search page.  Fixed several bugs. (blm)
+expanded the HOST name retrieval in post.php. (blm)
+Fixed some array issues in read.php (blm).
+Fixed PG65 problems.  $PGTYPE was not global. (blm).
+fixed strange little problem with an unitialized var in login.php (blm)
+Removed newline after closing tag in postgresql65.php (blm)
+$QUERY_STRING was unset if there was not one causing a Warning on some servers. (blm)
+Added basic File Upload capability.  Want to add directory hashing and the ability to load documents outside the doc root (jcb)
+Fixed error in postgres code that prevented index creation -- thanks fil69 (jcb)
+Added "forums" table generation code to the upgrade (from 3.0.x) script. (jcb)
+Just a note to say that Brian has fixed a security bug in the admin section  (jcb)
+Added plugin support. (mog)
+Added replace plugin. (mog)
+
+Phorum 3.1.2 ChangeLog
+------------------------------------------------------------
+Fixed security hole dealing with moderators logging in and editing forums other than their own. (blm+jcb)
+
+Phorum 3.1.1 ChangeLog
+------------------------------------------------------------
+Fixed undefined vars in admin/login.php (blm)
+Added 'Mark All Read' link. Coded by John Mangan. (blm)
+Fixed known issues with Phorummail. (blm)
+Fixed a possible variable type problem in admin/forums.php regarding down. (blm)
+Added version checking to admin. (blm)
+Fixed auth_db problem. (blm)
+Moved upgrade script from /admin into /scripts (jcb)
+Fixed typo that prevented stats.php from working (jcb)
+Fixed invalid function call fastwrap().  changed to textwrap(). (blm)
+Added ability for auth_db to use different username and passwords per forum. Coded by Frank M.G. Jørgensen. (blm)
+Abstracted the name of the main "forums" table into a variable set in common.php (jcb)
+Fixed multiple instances of <? being used instead of <?PHP (jcb)
+Added sanity checks to the forum creation code. (jcb)
+Moved the functions that create tables into a single call in an attempt to cure the missing _bodies phenomenon. (jcb)
+Fixed problem with undefined variables when reading a moderated forum in flat mode (jcb)
+Made "Drop Forum" not nuke a table if it's in use by another forum. (jcb)
+More attempts to fix the elusive "new" error (jcb)
+Fixed an old bug in undo_htmlspecialchars() that was causing problems with message quoting. (djw)
+Fixed a problem with the admin login droplist. (djw)
+Added line-wrapping and "> " quoting to message replies. (djw)
+Fixed a bug in the SQL query for flat mode. (djw)
+Fixed a possible infinite loop in textwrap().  (djw)
+Added code to auto-create the "forums" ($pho_main) table (jcb)
+Removed code for selecting database type in the admin.  Cleaned up common.php a bit to make it easier to specify there (jcb)
+Added language support to the search page as noted by Paul Guyot (jcb)
+Fixed several minor output formatting bugs submitted by Chris Bolt (jcb)
+Added variable $lModeratedMsg to the language files for future use.  This will be added to the "Reply" and "New Message" pages eventually.  Suggested by Will Mitayai Keeso Rowe.  (jcb)
+Added fix for MIME bodies not working through Phorummail submitted by Cronin Vining (jcb)
+Added code for easy TimeZone offset to the language files (jcb)

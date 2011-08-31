@@ -1,0 +1,269 @@
+phpPolls 1.0.3 - A voting booth for PHP3
+
+Copyright (c) 1999 by Till Gerken
+The initial version (1.0.0) was sponsored by uRoam, Inc.
+
+This program and all associated files are released under the GNU Public License,
+see gpl.txt for details!
+
+phpPolls is a PHP3 script capable of creating a full featured voting booth
+using MySQL. To get it running on your site, all you have to do is to
+copy all files into your document directory, create the necessary tables
+in MySQL and edit the phpPollConfig.php3 file.
+
+After that, you will be ready to include phpPolls into your PHP code,
+it takes just three lines.
+
+Please make sure that you have created all necessary polls before adding
+phpPolls to your code, otherwise it will not work correctly. (even the
+examples need a poll setup before being of any use)
+
+1. Copying the necessary files
+
+This is the list of the files you need to copy to your server:
+
+phpPollAdmin.php3	Administration Module
+phpPollBar.gif		Resource file
+phpPollCollector.php3	Vote Collector
+phpPollConfig.php3	Configuration File
+phpPollUI.php3		User interface API
+
+phpPollBar.gif is optional, in case you choose to use a different GIF file
+for the percentage bar you do not have to copy it.
+
+phpPollAdmin.php3 is completely standalone, it requires phpPollConfig.php3
+in the same directory though, as well as phpPollCollector.php3
+
+phpPollUI.php3 can be copied to any directory.
+
+2. Configuring the script
+
+Please take enough time to carefully configure the script, This is a very
+essential thing to do as part of the setup process, phpPolls can NOT be
+run with any preset values. I have taken great care to set the default values
+so that they will make the most sense for everyone, however, you should make
+yourself familiar at least with the IP locking, cookie setting and IP logging
+functionality. (not to speak of the MySQL settings)
+
+Per default, I have turned off IP logging and locking as this is somekind of
+an advanced option, which probably is of no use for anyone using a basic setup.
+In case you intend to use IP locking, make sure that you finetune the IP lock
+timeout value. Also, remember that if you have setup a poll in an environment
+where most of the votes originate from a proxy, you should reconsider your
+choice since the proxy's IP will be the only IP ever residing in the lock
+table, thus locking out different users over a long time.
+
+All configurable options can be found in phpPollConfig.php3. Take your favorite
+editor and edit the variables accordingly:
+
+$poll_baseURL		-	This denotes the base URL where the script
+				can find its modules. This URL will be used
+				when generating the action field in all
+				forms.
+
+$poll_mySQL_host	-	The hostname of the SQL database.
+$poll_mySQL_user	-	The MySQL user name
+$poll_mySQL_pwd		-	The MySQL password to use
+
+$poll_dbName		-	The name of the database where phpPolls can
+				find its tables
+
+$poll_descTableName	-	Name of the poll description table
+$poll_dataTableName	-	Name of the poll data table
+$poll_IPTableName	-	Name of the IP locking table
+$poll_logTableName	-	Name of the log table
+
+$poll_maxOptions	-	Maximal number of options that can be
+				voted for in each poll.
+
+$poll_logging		-	0 - phpPolls does not log any vote
+				1 - phpPolls logs every vote in the log table
+
+$poll_IPLocking		-	0 - do not lock IPs
+				1 - lock IPs after voting for a specified
+				    number of seconds
+
+$poll_IPLockTimeout	-	Number of seconds the IP of a voter is locked.
+				This is an important option for people who
+				want to secure their polls from others screwing
+				them up with HTTP requests that do not accept
+				cookies. Whenever a user votes, his IP is
+				stored in a lock table for the specified number
+				of seconds. As long as the IP remains in the
+				lock table, no votes are accepted from this IP.
+
+$poll_resultBarHeight	-	Height of percentage bar in pixels
+$poll_resultBarScale	-	Scale of percentage bar in multiples of 100 pixels
+$poll_resultBarFile	-	File to use as result bar
+
+$poll_setCookies	-	This flag determines wether phpPolls should
+				check for a user voting twice by setting
+				a cookie. If this flag is set to 1, phpPolls
+				will send cookies and check them every vote.
+				If the flag is set to 0, no cookies will be
+				issued nor will any checks be performed.
+
+$poll_warnCheaters	-	In case this flag is set and an invalid
+				vote is encountered (cookie is already set),
+				phpPolls will print a short warning message
+				instead of instantly forwarding the user
+				to the destination page. Unset this flag
+				in case you want to silently ignore all
+				invalid votes.
+
+$poll_usePersistentConnects -	Here you can specify wether you want the script to
+				open a persistent connection to the database or
+				use an open/close sequence everytime the database
+				access is needed. In case your database links are
+				a scarce resource and polls will only happen every
+				once in a while, an open/close sequence might be
+				the better choice, in all other cases persistent
+				links will give you better performance.
+
+$poll_cookiePrefix	-	This is the prefix that phpPolls will use
+				for naming its cookies, i.e. in case the prefix
+				is "phpPoll", a cookie will be named "phpPoll<a number>",
+				for example "phpPoll8549389". The number
+				will be different each time, the prefix will
+				remain the same, however.
+
+3. Creating the necessary tables in MySQL
+
+phpPolls needs two tables to operate, one for the poll descriptions and one
+for the poll data. You can specify the name for these tables in phpPollConfig.php3,
+the schemes for these tables are as following:
+
+(also contained in phpPolls.mysql - use this file for creating the tables)
+
+Structure for $poll_dataTableName
+
+ CREATE TABLE vbooth_data (
+   pollID int(11) NOT NULL,
+   optionText char(50) NOT NULL,
+   optionCount int(11) DEFAULT '0' NOT NULL,
+   voteID int(11) DEFAULT '0' NOT NULL
+ );
+
+ --------------------------------------------------------
+
+Structure for $poll_descTableName
+
+ CREATE TABLE vbooth_desc (
+   pollID int(11) NOT NULL auto_increment,
+   pollTitle char(100) NOT NULL,
+   timeStamp int(11) NOT NULL,
+   PRIMARY KEY (pollID)
+ );
+
+ --------------------------------------------------------
+
+Structure for $poll_IPTable
+
+CREATE TABLE vbooth_ip (
+   pollID int(11) NOT NULL,
+   voteID int(11) DEFAULT '0' NOT NULL,
+   votersIP char(16) NOT NULL,
+   timeStamp int(11) NOT NULL
+);
+
+ --------------------------------------------------------
+
+Structure for $poll_logTable
+
+CREATE TABLE vbooth_log (
+   logID int(11) NOT NULL auto_increment,
+   pollID int(11) NOT NULL,
+   voteID int(11) DEFAULT '0' NOT NULL,
+   votersIP char(16) NOT NULL,
+   timeStamp int(11) NOT NULL,
+   PRIMARY KEY (logID)
+);
+
+4. Creating new polls
+
+To create new polls (and also remove old polls), please run
+phpPollAdmin.php3 and follow the instructions, the script is very
+self explanatory.
+
+To create a poll you can set a description for it (usually the thing
+you'd want people to vote for) and all the option texts. In case you
+do not want an option to be used, just leave it empty and phpPolls will
+not print it. $poll_maxOptions in phpPollConfig.php3 determines the
+maximal number of options available, which does not mean you have to
+use them all of course. Unused options are not stored into the database
+as well.
+
+After creating a poll, phpPollAdmin will give you an ID and print out
+a sample snippet on how to integrate this poll into your website. The
+poll ID plays an important role as it is used to identify the poll
+you want to let people vote for.
+
+Removing a poll is even easier, click on the "Remove poll" link in the
+main menu and choose the poll you would like to remove. Please note
+that the chosen poll will be removed IMMEDIATELY from the database
+without the possibility to recover, so you should be absolutely sure
+about which poll to remove. This will also delete all associated
+logs and IP locks. In case you want to save any of this information for
+a certain poll, back it up before deleting the poll.
+
+5. Integrating the phpPolls into your code
+
+To integrate phpPolls into your code, you have to include phpPollConfig.php3
+and phpPollUI.php3 into your script. phpPollUI.php3 contains the API
+functionality, phpPollConfig.php3 is used to make all configuration options
+known to the module.
+
+Generating the user interface for a poll is being done using the function
+poll_generateUI(). As parameters the function takes the ID of the poll to
+generate the interface for and the URL of a page where you want the user
+to end up once he has voted.
+
+poll_generateUI() will then generate HTML code for a table containing each
+option text with a radio button next to it as well as a button "Vote".
+Once the "Vote" button is being pressed, phpPollCollector.php3 will take
+care of checking/setting cookies and updating the database as well as
+issuing a forwarder for the previously given URL.
+
+In case you would want to show the results of your poll after the user has
+voted, you have to call poll_viewResults(). As parameters the function
+not only takes the poll ID for which to show the results for but also
+takes six additional parameters: table header, row header, data header,
+data footer, row footer, table footer. These must be valid HTML tags and
+are used to format your output.
+
+In the normal case these tags would be "<table>", "<tr>", "<td>", "</td>",
+"</tr>" and "</table>" respectively. Having each of these tags as a
+variable allows you to choose different design, maybe completely different
+of that of a table.
+
+To get a list of all available polls you can use the function poll_listPolls().
+This function will return a two-dimensional array (pollID, pollDescription)
+containing all polls.
+
+Since version 1.0.2, there is the function poll_getResults(), which will return
+a poll's results in an associative array.
+
+For demonstration of each function see vote.php3, list.php3, view.php3
+and results.php3 respectively.
+
+6. Examples
+
+As for a ready-to-use starting point for your own coding, please see
+the supplied index.php3 file. It features a basic interface allowing you to vote
+and view results of your polls that you created using phpPollAdmin.
+This file is also hosted at http://www.phpwizard.net/phpPolls
+
+7. Acknowledgements
+
+Big thanks must go out to Tobias Ratschiller for supplying me with information
+and resources, as well as hosting this project for me. He has also added
+poll_getResults() based on poll_viewResults().
+
+Also thanks to Alexander Sokolsky from uRoam for providing in-depth beta reports
+and doing a great job on improving the sample snippets.
+
+Last but not least, greetings must go out to all those who contributed to phpPolls,
+either by supplying fixes / patches or just sharing their ideas and critics. You
+know who you are!
+
+Have fun!

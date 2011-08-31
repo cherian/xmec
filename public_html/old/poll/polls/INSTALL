@@ -1,0 +1,42 @@
+phpPolls 1.0.3 - A voting booth for PHP3
+
+Copyright (c) 1999 by Till Gerken
+The initial version (1.0.0) was sponsored by uRoam, Inc.
+
+This program and all associated files are released under the GNU Public License,
+see gpl.txt for details!
+
+For more detailed installation instructions and additional information please
+see INSTALL_detailed.
+
+1. Unpack distro:
+
+/usr/local/src/phpPolls_1.0.3# tar xfz phpPolls_1.0.3.tar.gz
+
+2. Put it on the web:
+
+legolas:/usr/local/apache/share/htdocs# ln -s /usr/local/src/phpPolls_1.0.3 phpPolls
+
+3. Create MySQL database phpPolls.  I used phpMyAdmin
+
+4. Create MySQL tables:
+
+/usr/local/src/phpPolls_1.0.3# /usr/local/mysql/bin/mysql -h www.xmec.net phpPolls < phpPolls.mysql
+
+5. Edit phpPollConfig.php3:
+
+$poll_baseURL = "http://www.xmec.net/poll/polls";
+$poll_mySQL_host = "www.xmec.net";
+$poll_mySQL_user = "xmec";
+$poll_mySQL_pwd = "isshe39";
+$poll_dbName = "phpPolls";
+$poll_setCookies = 0;	// this enables repetitive voting for testing
+
+6. Create a new poll. Point your browser to http://web-server-host/phpPolls/phpPollAdmin.php3
+
+7. Do quick vote. Point your browser to http://web-server-host/phpPolls/vote.php3?pollID=1
+   where pollID is id of the poll created in step 6.
+
+8. Voting should lead you to a quick test results display
+
+9. To be able to check out more options, try http://web-server-host/phpPolls/list.php3

@@ -1,0 +1,32 @@
+<?php
+$secure_page=0;
+$this_page = "guestbookadd";
+include 'header.php';
+?>
+<center><table border=1 width="90%"><tr><td>
+    <center>
+      <h1>Add to our Guestbook</h1>
+    </center>
+
+    Fill in the blanks below to add to our guestbook.  The only blanks that you 
+    have to fill in are the comments and name section.  Thanks!<hr>
+    <form method=POST action="guestbook/guestbook.pl">
+<table><tr><td width="40%">
+      Your Name:</td><td><input type=text name=realname size=30></td></tr>
+<tr><td>      E-Mail:</td><td> <input type=text name=username size=40></td></tr>
+      <tr><td>URL:</td><td> <input type=text name=url size=50></td></tr>
+      <tr><td>City: </td><td><input type=text name=city size=15></td></tr><tr><td> State:</td><td> <input type=text name=state size=2> </td></tr>
+<tr><td>Country:</td><td> <input type=text value=USA name=country size=15></td></tr>
+<tr><td colspan=2>
+      Comments:<br>
+      <textarea name=comments COLS=60 ROWS=4></textarea></td></tr>
+      <tr><td><input type=submit value="Post"></td><td> <input type=reset name="Reset"></td></tr>
+</table>
+    </form>
+    <hr>
+    <a href="guestbook.php">Back to the Guestbook Entries</a><br>
+	The script is taken from Matts Archives <a href="http://www.worldwidemart.com/scripts/"> 
+</td></tr></table></center>
+<?php
+include 'footer.php';
+?>

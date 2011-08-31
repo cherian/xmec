@@ -1,0 +1,24 @@
+#!/bin/csh
+
+foreach file (`ls -t *.html`)
+set contents=`grep "Web Statistics from" $file`
+if ("$contents" != "") then
+#new style log file.
+printf "<br><br>"
+printf "<a href="$file">"
+printf "$contents\n"
+printf "</a>\n"
+
+continue
+endif
+
+set contents=`grep -A1 "Analysed requests from" $file`
+if ("$contents" != "") then
+#old style log file.
+printf "<br>"
+printf "<a href="$file">"
+printf "$contents\n"
+printf "</a>\n"
+endif
+endif
+end

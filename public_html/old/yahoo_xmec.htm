@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<LINK rel=stylesheet href="style.css" type="text/css">
+</HEAD>
+<BODY topmargin=0 leftmargin=0 marginheight = "0" marginwidth = "0" bgcolor="#ffffff">
+<TABLE BGCOLOR="white" align=left border=0 cellPadding=0 cellSpacing=0 width="625" height="100%">
+<TR>
+<TD valign=top width=620><BR><BR>
+<font face=arial size=2 color="#FF0000"><P><strong>XMEC Yahoo Groups Subscription</strong></P><P>You can modify your preferences with regard to the Email Account in which you wish to receive mails from the Alumni YahooGroups <a href="mailto:xmec@yahoogroups.com" class=xmec>xmec@yahoogroups.com</a>. Please ignore this section if you do not wish to modify your existing preference</P></font>
+<script Language="JavaScript" src="jslibxmec.js">
+</script>
+<script language="javascript">
+
+function check()
+{
+
+  if (false == validate())
+  {
+     
+   }
+   else{
+   if(document.yahoo.email_new.value != ""){ 
+   document.yahoo.submit();
+   }
+   }
+   
+ }   
+function validate()
+{
+	if(document.yahoo.email_old.value != ""){
+	if(!CheckEmailStr(document.yahoo.email_old.value )){
+	alert("Please verify Email to unsubscribe from XMEC Yahoo Groups");
+	return false;
+	}
+	}
+	if((document.yahoo.email_new.value != "")	|| (document.yahoo.email_old.value != "")){
+		if(!CheckEmailStr(document.yahoo.email_new.value )){
+	alert("Please verify Email to subscribe to XMEC Yahoo Groups");
+	return false;
+	}
+	}
+			return true;
+	}
+
+</script>
+<form name="yahoo" method="post"
+action="/server-scripts/formmail/FormMail.pl">
+<input type=hidden name="recipient" value="moderator@xmec.addr.com">
+<INPUT TYPE=hidden NAME="subject" VALUE="[xmec.net] Yahoogroups Subscription">
+<INPUT TYPE=hidden NAME="email" VALUE="email_new">
+<input type=hidden name="redirect" value="http://www.xmec.net/thankyou.html">   
+<INPUT TYPE="hidden" NAME="redirect" VALUE="http://www.xmec.net/thankyou.html">
+<TABLE BORDER=0 cellpadding=5 cellspacing=0 bordercolor="#dddddd" WIDTH="619">
+<TR>
+<TD width=331><FONT face=Arial size=2><B>Please unsubscribe my current Email ID</B></FONT></TD>
+<TD width=64><FONT face=Arial size=2><INPUT NAME="email_old" SIZE=30 style="HEIGHT: 22px; WIDTH: 128px"> </FONT>
+</TD></TR>
+<TR>
+<TD width=331><FONT face=Arial size=2><B>Please send all further XMEC YahooGroups Mails to</B></FONT></TD>
+<TD width=64><FONT face=Arial size=2><INPUT NAME="email_new" SIZE=30 style="HEIGHT: 22px; WIDTH: 128px"> </FONT>
+</TD></TR>
+<TR>
+<TD align=left width="331">
+<A href="javascript:history.back();"><img src="images/back.gif" border=0></A>
+</TD>
+<TD align=middle width="264">
+<INPUT TYPE="button" NAME="sendit" VALUE="Send" onClick="javascript:check()">
+</TD>
+</TR>
+</TABLE> </FORM>
+</TD>
+<TD width=2 valign=top align=middle><BR><BR><BR><BR></TD>
+<TR>
+<TD colspan=2 width="623">
+      <TABLE align=center border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TR>
+          <TD align=middle height=30 valign=top></TD>
+        </TR>
+        <TR>
+			<TD align=middle height=30 valign=bottom><font face=arial size=-1 color="#999999">Site Powered by &nbsp;<A href="http://www.marlabs.com"><IMG align=absMiddle border=0 src="images/marlabs.jpg"></A> &nbsp;© Copyright 2001</font></TD>
+		</TR>
+      </TABLE>
+</TD></TR>
+</TABLE> 
+</BODY>
+</HTML>
+

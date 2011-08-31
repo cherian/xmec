@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<LINK rel=stylesheet href="style.css" type="text/css">
+</HEAD>
+<BODY topmargin=0 leftmargin=0 marginheight = "0" marginwidth = "0" bgcolor="#ffffff">
+<TABLE BGCOLOR="white" align=left border=0 cellPadding=0 cellSpacing=0 width="615" height="100%">
+<TR>
+<TD valign=top width=445><IMG src="images/head_groups.gif">
+<script language="javascript" src="jslibxmec.js">
+</script>
+<script language="javascript">
+function check()
+{
+
+  if (false == validate())
+  {
+     return;
+   }
+   else
+   document.emails.submit();
+   
+ }   
+function validate()
+{
+	if (document.emails.list.options[document.emails.list.selectedIndex].value == ""){ 
+	alert("Please Select the Batch");
+	return false;
+	}
+	if (document.emails.sub.value == ""){ 
+	alert("Please enter the Subject");
+	return false;
+	}	
+	if(!CheckEmailStr(document.emails.email.value )){
+//	alert("Please Please verify Personel Email");
+	return false;
+	}
+	if (document.emails.information.value == ""){ 
+	alert("Please enter the Message");
+	return false;
+	}	
+		return true;
+	}
+
+function canceltext()
+{ 
+document.emails.information.value = "";
+}
+
+function displayinfo(){
+        var who=document.emails.list.options[document.emails.list.selectedIndex].value;
+//        var address=document.emails.address;
+        var info=document.emails.information;
+        
+if (who==""){
+                info.value="Please select the group you want to send the message.";}
+if (who=="xmec"){
+                info.value="This message will be conveyed to all XMECians on approval of the moderator.";
+                document.emails.recipient.value = "moderator@xmec.addr.com";
+                }
+if (who=="xmec_e"){
+                info.value="This message will be conveyed to all XMECians of US East Coast on approval of the moderator.";
+                document.emails.recipient.value = "us_east@xmec.addr.com";
+                }
+if (who=="xmec_w"){
+                info.value="This message will be conveyed to all XMECians of US West Coast on approval of the moderator.";
+                document.emails.recipient.value = "us_west@xmec.addr.com";
+                }
+if (who=="batch1"){
+                info.value="This message will be conveyed to all XMECians of First Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch1@xmec.addr.com";
+                }
+if (who=="batch2"){
+                info.value="This message will be conveyed to all XMECians of Second Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch2@xmec.addr.com";
+                }
+if (who=="batch3"){
+                info.value="This message will be conveyed to all XMECians of Third Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch3@xmec.addr.com";
+                }
+if (who=="batch4"){
+                info.value="This message will be conveyed to all XMECians of Fourth Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch4@xmec.addr.com";
+                }
+if (who=="batch5"){
+                info.value="This message will be conveyed to all XMECians of Fifth Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch5@xmec.addr.com";
+                }
+if (who=="batch6"){
+                info.value="This message will be conveyed to all XMECians of Sixth Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch6@xmec.addr.com";
+                }
+if (who=="batch7"){
+                info.value="This message will be conveyed to all XMECians of Seventh Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch7@xmec.addr.com";
+                }
+if (who=="batch8"){
+                info.value="This message will be conveyed to all XMECians of Eighth Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch8@xmec.addr.com";
+                }
+if (who=="batch9"){
+                info.value="This message will be conveyed to all XMECians of Ninth Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch9@xmec.addr.com";
+                }
+if (who=="batch10"){
+                info.value="This message will be conveyed to all XMECians of Tenth Batch on approval of the moderator.";
+                document.emails.recipient.value = "batch10@xmec.addr.com";
+                }
+if (who=="batch11"){
+                info.value="This message will be conveyed to all XMECians of Eleventh Batch on approval of the moderator.";
+                document.emails.recipient.value = "webmasters@xmec.net";
+                }
+
+}
+
+
+</script>
+<FORM name="emails" method="post" action="../cgi-bin/FormMail.pl">
+<INPUT TYPE="hidden" NAME="recipient" value="">
+<INPUT TYPE="hidden" NAME="subject" VALUE="Message to Yahoogroups - www.xmec.net">
+<INPUT TYPE="hidden" NAME="redirect" VALUE="http://www.xmec.net/thankyou.html">
+
+<TABLE BORDER=0 cellpadding=5 cellspacing=0 bordercolor="#dddddd" WIDTH="425">
+<TR>
+<TD width=150><B>Batch</B></TD>
+<TD width=275><SELECT NAME="list" onChange="displayinfo()" style="HEIGHT: 22px; WIDTH: 225px" 
+            width="250">
+<OPTION value="" 
+              selected>Select One</OPTION>
+<OPTION value="xmec">XMEC</OPTION>
+<OPTION value="xmec_e">XMEC - US East Coast</OPTION>^M
+<OPTION value="xmec_w">XMEC - US West Coast</OPTION>^M
+<OPTION value="batch1">1st Batch (89-93)</OPTION>
+<OPTION value="batch2">2nd Batch (90-94)</OPTION>
+<OPTION value="batch3">3rd Batch (91-95)</OPTION>
+<OPTION value="batch4">4th Batch (92-96)</OPTION>
+<OPTION value="batch5">5th Batch (93-97)</OPTION>
+<OPTION value="batch6">6th Batch (94-98)</OPTION>
+<OPTION value="batch7">7th Batch (95-99)</OPTION>
+<OPTION value="batch8">8th Batch (96-00)</OPTION>
+<OPTION value="batch9">9th Batch (97-01)</OPTION>
+<OPTION value="batch10">10th Batch (98-02)</OPTION>
+</SELECT></TD>
+</TR>
+<TR>
+<TD width=150><B>Subject</B></TD>
+<TD width=275><INPUT NAME="sub" SIZE=30>
+</TD></TR>
+<TR>
+<TD width=150><B>Your Email ID</B></TD>
+<TD width=275><INPUT NAME="email" SIZE=30>
+</TD></TR>
+<TR><TD colspan=2><TEXTAREA cols=50 name=information rows=10 wrap=virtual onfocus="javascript:canceltext();">Please select the group you want to send the message</TEXTAREA>
+</TD></TR>
+<TR><TD align=middle colspan=2>
+<INPUT TYPE="Button" NAME="sendit" VALUE="Send" onclick="javascript:check();">
+</TD>
+</TR>
+</TABLE> </FORM>
+</TD>
+<TD width=170 valign=top align=middle><BR><BR><BR><BR><IMG src="images/groups.jpg"></TD>
+<TR>
+<TD colspan=2>
+      <TABLE align=center border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TR>
+          <TD align=middle height=30 valign=top><A href="members.php"><font face=arial size=-1 color="#669999">Members</font></A> || <A href="search.php"><font face=arial size=-1 color="#669999">Search</font></A> || <A href="disc.htm"><font face=arial size=-1 color="#669999">Disclaimer</font></A> || <A href="sitemap.htm"><font face=arial size=-1 color="#669999">Sitemap</font></A> || <A href="comments.html"><font face=arial size=-1 color="#669999">Comments</font></A></TD>
+        </TR>
+        <TR>
+			<TD align=middle height=30 valign=bottom><font face=arial size=-1 color="#999999">XMEC © Copyright 2001</font></TD>
+		</TR>
+      </TABLE>
+</TD></TR>
+</TABLE> 
+</BODY>
+</HTML>

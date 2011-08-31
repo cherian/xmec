@@ -1,0 +1,173 @@
+Phorum 3 FAQ
+
+Contents
+--------
+ 1.  When I add new forums or load the admin page for a forum I get an
+     error message.
+ 2.  I keep getting a warning about headers being sent.
+ 3.  I get errors that say "Bad Message Destination".
+ 4.  I get errors that say "Warning: Failed to Connect".
+ 5.  What files do I customize to change Phorum to fit my site.
+ 6.  What permissions does Phorum need from the database?
+ 7.  What is $cutoff?
+ 8.  I need to use .php3 or some other extension, not .php.
+ 9.  Phorum complains about not being able to open files.
+10.  I can not login to the admin and I am using IIS on Windows.
+
+===========================================================================
+
+ 1. When I add new forums or load the amdin page for a forum I get a
+    message like:
+
+    Warning: Failed opening '/home/phorum/admin/forums/5.php' for inclusion in
+    /home/phorum/admin/index.php on line 440
+    ---------------------------------------------------------------------------
+    1. You need to be sure your run the .sql file for your database.  See the
+       readme, section 1, number 2.
+    2. Be sure the web server can write to the forums dir.  See the readme,
+       section 1, number 4.
+
+ 2. I keep getting a warning about headers being sent.
+    ---------------------------------------------------------------------------
+    You most likely have a newline after ?> at the end of a file.  If you have
+    edited any files check that there is no whitspace in them.
+
+
+ 3. I get errors that say "Bad Message Destination".
+    ---------------------------------------------------------------------------
+    Some servers do not like sending mail with the To: field empty.  If you get
+    errors on posting about email, you will have to edit post.php3:
+
+      mail("", "$subject", $forum_url."$r.....
+
+      change to:
+
+      mail("some@address", "$subject", $forum_url."$r.....
+
+    The bad part is that that email has to go somewhere.  If you can setup some
+    address that can be auto deleted do that.  Otherwise you may want to comment
+    out the lines following in form.inc:
+
+      <tr>
+        <td <?PHP echo bgcolor($TableBodyColor1); ?>
+         colspan=2 width="100%" nowrap align="left">
+         <input type="checkbox" name="email_reply" value="Y">
+         <?PHP echo $lEmailMe; ?></td>
+      </tr>
+
+    This is actually only 3 lines in the code but has to wrap here.
+
+
+ 4. I get errors that say "Warning: Failed to Connect".
+    ---------------------------------------------------------------------------
+    You are most likely using a Windows server.  On Windows, PHP has to be
+    configured with an SMTP server.  Edit your php.ini file and enter your
+    SMTP server.
+
+
+ 5. What files do I customize to change Phorum to fit my site.
+    ---------------------------------------------------------------------------
+    include/header.php
+    include/footer.php
+
+    You can have multiples of these.  Simply name the files
+    header_config_suffix.php where config_suffix is the vale you gave Config
+    Suffix in the admin when creating the forum.  This also works with:
+
+    include/censor.php       -> censor_config_suffix.php   etc...
+    include/bad_names.php
+    include/bad_emails.php
+    include/bad_hosts.php
+
+
+ 6. What permissions does Phorum need from the database?
+    ---------------------------------------------------------------------------
+    Select, Insert, Update, Delete, Alter Tables,
+    Create & Drop Tables.
+
+
+ 7. What is $cutoff?
+    ---------------------------------------------------------------------------
+    It was discovered that some queries were selecting the whole table.  In our
+    case, 98,000 rows.  MySQL did not like this at all.  So, in lieu of a better
+    solution, we put in this cutoff to limit the rows it selects.  You see, a
+    limit clause in a query does not limit the rows selected, only the rows
+    returned.  Therefore a query like:
+
+    select * from table where id<1000200 limit 10
+
+    returns 10 rows, but to get those 10 it would select every row with an id
+    less than 1000200.  In this case it could be 1000199 rows.  So we made it
+    now look like:
+
+    select * from table where id<1000200 and id>(1000200-$cutoff) limit 10
+
+    Now the max you will have selected is $cutoff.  I picked 800 because it will
+    be fine 99.9% of the time.
+
+    If someone wanted to display more than 800 messages on a page or they had a
+    gap in message id's of more than 800 (some strange importers), they would
+    need to up this.
+
+
+ 8. I need to use .php3 or some other extension, not .php.
+    ---------------------------------------------------------------------------
+    The extension .php will be the prefered default extension for all new
+    version of PHP starting with version 4.  It is the extension used by the
+    PHP team and Zend.com.  For this reason, Phorum comes with this extension.
+    The easiest way is to use this extension is to make Apache or your
+    webserver parse these as PHP files.  In Apache you need to add a line like:
+
+    DirectoryIndex index.html index.php3 index.php
+    AddType application/x-httpd-php3 .php
+
+    If that is not an option, you can change it by following these three
+    steps: (you can substitute whatever you need instead of .php3)
+
+    1. Rename admin/index.php to admin/index.php3
+    2. Rename all the .php files in the main Phorum dir (index.php, list.php,
+       etc.) to the new extension WITH THE EXCEPTION OF common.php.
+    3. Go to the admin through your browser.  Login in to the Master Settings
+       (if you have not set the password yet it will take you there without
+       logging in).  Select Phorum Setup, then File/Paths.  Change the File
+       Extension to .php3 and hit update.
+
+
+ 9. Phorum complains about not being able to open files.
+    ---------------------------------------------------------------------------
+    If you are seeing errors like:
+
+    Warning: fopen("admin/forums/1.php","w") - Permission denied in
+      /home/forum/admin/index.php on line 175
+
+    You most likely did not set up the permissions correctly.  Please read the
+    installation documentation again.
+
+
+10. I can not login to the admin and I am using IIS on Windows.
+    ---------------------------------------------------------------------------
+    As documented on the Microsoft site:
+    <http://support.microsoft.com/support/kb/articles/Q176/1/13.ASP>
+    "BUG: Set-Cookie is ignored in CGI when combined with Location"
+
+    I found the reference to this article by browsing the support forum on
+    phorum.org. The author of that posting suggested another way to fix the
+    problem, but in my opinion that method does not help.
+
+    The funny thing is that this bug report is written in 1997 (!), and
+    apparently they (Micro$oft) haven't fixed it in all this long years.
+    Basicaly, when you want to set a cookie, you cannot send a redirect
+    (Location) header.
+
+    Instead, you can send a html file with a META Refresh tag inside.
+    Applying to Phorum, one should probably replace all occurences of
+    setcookie() followed by header(Location: ...) with something else.
+
+       header("Location: $PHP_SELF");
+
+    could be replaced by something like:
+
+       // header("Location: $PHP_SELF");
+       // IIS hack
+       print '<html><head><meta http-equiv="refresh" content="0;URL=index.php">';
+       print '</head><body><a href="index.html">Click here</a></body></html>';

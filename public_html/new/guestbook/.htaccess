@@ -1,0 +1,4 @@
+DirectoryIndex guestbook.html index.html index.htm index.cgi
+
+ExpiresActive On
+ExpiresDefault A5

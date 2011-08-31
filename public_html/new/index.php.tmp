@@ -1,0 +1,360 @@
+<?php
+	include_once 'xmec.inc';
+	include_once 'functions.php';
+
+	reset($HTTP_POST_VARS);
+	$action = chop($HTTP_POST_VARS["action"]);
+	if ($REQUEST_METHOD == "GET")
+		$action = chop($HTTP_GET_VARS["action"]);
+	$login_success = FALSE;
+
+	if ($target == "")
+		$target = "members.php";
+	
+	if ($action == "login") {
+		$userid = chop($HTTP_POST_VARS["rollno"]);
+		$pass = chop($HTTP_POST_VARS["passwd"]);
+		$target = chop($HTTP_POST_VARS["target"]);
+
+		if (XMEC::authenticate_user()) {
+			XMEC::user_logout();
+		}
+
+		if (XMEC::user_login($userid, $pass)) {
+			$login_success = TRUE;
+			$url = "$PHP_SELF?action=null&target=";
+			$url .= rawurlencode($target);
+			header("Location: $url");
+			exit ;
+		}
+	} else if ($action == "logout") {
+		XMEC::user_logout();
+	} else 
+		XMEC::authenticate_user();
+
+	$user =& XMEC::getUser();
+	if (!$user->isLoggedIn()) {
+		$user->set('first_name', "Guest");
+		$user->set('last_name', "");
+	} else {
+		$login_success = TRUE;
+	}
+
+?>
+<HTML>
+<HEAD>
+<TITLE>::: XMECians on the web!! :::</TITLE>
+<LINK href="style.css" type="text/css" rel="Stylesheet">
+<SCRIPT language=JavaScript src="menu_array.js" type=text/javascript></SCRIPT>
+<SCRIPT language=JavaScript src="mmenu.js" type=text/javascript></SCRIPT>
+<SCRIPT language=JavaScript src="search.js" type=text/javascript></SCRIPT>
+</HEAD>
+<BODY topmargin=0 leftmargin=0 rightmargin=0 marginheight="0" marginwidth="0">
+<TABLE cellSpacing=0 cellPadding=0 width=780 border=0 bgcolor="#FFFFFF">
+  <TR>
+    <TD colspan=9 height=73 background="images/topback.jpg" valign=bottom><img src="images/logo.gif" width=520 height=53 usemap="#XMEC" border=0></TD>
+  </TR>
+  <TR>
+    <TD colspan=9 height=1 bgcolor="#FFFFFF"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+    <TD width=35 height=26 bgcolor="#8EBBE6"><img src="images/space.gif"></TD>
+    <TD height=26 colspan=2 bgcolor="#8EBBE6" align=center valign=center>
+    </TD>
+    <TD colspan=5 height=26 bgcolor="#8EBBE6"><img src="images/space.gif"></TD>
+    <TD width=35 height=26 bgcolor="#8EBBE6"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+    <TD rowspan=3 width=35 bgcolor="#E6EBEF"><img src="images/space.gif"></TD>
+    <TD rowspan=3 width=1 bgcolor="#FF6666"><img src="images/space.gif"></TD>
+    <TD colspan=5 height=26 width=708>
+		<TABLE cellSpacing=0 cellPadding=0 width=700 height=26 border=0 bgcolor="#FFFFFF">
+		  <TR>
+			<?php $user =& XMEC::getUser();
+				if ($user->isLoggedIn()):  ?>
+				<TD class=body>&nbsp;&nbsp;&nbsp;&nbsp;Welcome <b class=name>
+			<?php echo $user->get('first_name'). " ".$user->get('last_name') ?>
+				</b></TD>
+				<TD align=right><A href="login.php?action=logout"><img src="images/logoff.gif" border=0></A></TD>
+			<? endif ?>
+		  </TR>
+	</TABLE>
+    </TD>
+    <TD rowspan=3 width=1  bgcolor="#FF6666"><img src="images/space.gif"></TD>
+    <TD rowspan=3 width=35 bgcolor="#E6EBEF"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+    <TD colspan=5 height=1 width=708 bgcolor="#DBDBDB"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+    <TD width=174 valign=top>
+<!--left side starts-->
+<TABLE cellSpacing=0 cellPadding=0 width=174 border=0 bgcolor="#FFFFFF">
+  <TR>
+  	<TD align=center height=90>
+<!--members login starts-->
+<? renderLoginBox() ?>
+<!--members login ends-->  	
+  	</TD>
+  </TR>
+  <TR>
+  	<TD align=center height=3 background="images/hdot.gif"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+  	<TD align=center height=120><A href="discussion.html"><img src="images/discussion.gif" border=0></A></TD>
+  </TR>
+  <TR>
+  	<TD align=center height=3 background="images/hdot.gif"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+  	<TD align=center height=80>
+<!--news starts-->
+<TABLE cellSpacing=0 height=70 width=173 cellPadding=0 border=0>
+ <TR>
+  	<TD width=16 valign=center><img src="images/news.gif" width=16 height=52></TD>
+  	<TD width=157>
+<!--news-->
+			<script language="JavaScript">
+			var scrollerwidth=155
+			var scrollerheight=70
+			var scrollerbgcolor='#FFFFFF'
+			var scrollerbackground=''
+			var messages=new Array()
+			messages[0]="<A href=xnews.php class=news>www.xmec.net renovated</a></A>"
+			messages[1]="<a href=careers.php class=news>Check the latest career options</a>"
+			messages[2]="<a href=polls.php class=news>cast your vote here</a>"
+
+
+			if (messages.length>1)
+				k=2
+			else
+				k=0
+
+			function move1(whichlayer)
+			{
+				tlayer=eval(whichlayer)
+				if (tlayer.top>0&&tlayer.top<=5){
+				tlayer.top=0
+				setTimeout("move1(tlayer)",3000)
+				setTimeout("move2(document.main.document.second)",3000)
+				return
+				}
+				if (tlayer.top>=tlayer.document.height*-1){
+				tlayer.top-=5
+				setTimeout("move1(tlayer)",100)
+				}
+				else{
+				tlayer.top=scrollerheight
+				tlayer.document.write(messages[k])
+				tlayer.document.close()
+				if (k==messages.length-1)
+				k=0
+				else
+				k++
+				}
+			}
+
+			function move2(whichlayer)
+			{
+				tlayer2=eval(whichlayer)
+				if (tlayer2.top>0&&tlayer2.top<=5){
+				tlayer2.top=0
+				setTimeout("move2(tlayer2)",3000)
+				setTimeout("move1(document.main.document.first)",3000)
+				return
+				}
+				if (tlayer2.top>=tlayer2.document.height*-1){
+				tlayer2.top-=5
+				setTimeout("move2(tlayer2)",100)
+				}
+				else{
+				tlayer2.top=scrollerheight
+				tlayer2.document.write(messages[k])
+				tlayer2.document.close()
+				if (k==messages.length-1)
+				k=0
+				else
+				k++
+				}
+			}
+
+			function move3(whichdiv)
+			{
+				tdiv=eval(whichdiv)
+				if (tdiv.style.pixelTop>0&&tdiv.style.pixelTop<=5){
+				tdiv.style.pixelTop=0
+				setTimeout("move3(tdiv)",3000)
+				setTimeout("move4(second2)",3000)
+				return
+				}
+				if (tdiv.style.pixelTop>=tdiv.offsetHeight*-1){
+				tdiv.style.pixelTop-=5
+				setTimeout("move3(tdiv)",100)
+				}
+				else{
+				tdiv.style.pixelTop=scrollerheight
+				tdiv.innerHTML=messages[k]
+				if (k==messages.length-1)
+				k=0
+				else
+				k++
+				}
+			}
+
+			function move4(whichdiv)
+			{
+				tdiv2=eval(whichdiv)
+				if (tdiv2.style.pixelTop>0&&tdiv2.style.pixelTop<=5){
+				tdiv2.style.pixelTop=0
+				setTimeout("move4(tdiv2)",3000)
+				setTimeout("move3(first2)",3000)
+				return
+				}
+				if (tdiv2.style.pixelTop>=tdiv2.offsetHeight*-1){
+				tdiv2.style.pixelTop-=5
+				setTimeout("move4(second2)",100)
+				}
+				else{
+				tdiv2.style.pixelTop=scrollerheight
+				tdiv2.innerHTML=messages[k]
+				if (k==messages.length-1)
+				k=0
+				else
+				k++
+				}
+			}
+
+			function startscroll()
+			{
+				if (document.all){
+				move3(first2)
+				second2.style.top=scrollerheight
+				second2.style.visibility='visible'
+				}
+				else if (document.layers){
+				document.main.visibility='show'
+				move1(document.main.document.first)
+				document.main.document.second.top=scrollerheight+5
+				document.main.document.second.visibility='show'
+				}
+			}
+
+			window.onload=startscroll
+
+			</script>
+
+			<ilayer id="main" width=&{scrollerwidth}; height=&{scrollerheight};  background=&{scrollerbackground}; visibility=hide>
+			<layer id="first" left=0 top=1 width=&{scrollerwidth};>
+			<script language="JavaScript1.2">
+			if (document.layers)
+			document.write(messages[0])
+			</script>
+			</layer>
+			<layer id="second" left=0 top=0 width=&{scrollerwidth}; visibility=hide>
+			<script language="JavaScript1.2">
+			if (document.layers)
+			document.write(messages[1])
+			</script>
+			</layer>
+			</ilayer>
+
+			<script language="JavaScript1.2">
+			if (document.all){
+			document.writeln('<span id="main2" style="position:relative;width:'+scrollerwidth+';height:'+scrollerheight+';overflow:hiden;background-color:'+scrollerbgcolor+' ;background-image:url('+scrollerbackground+')">')
+			document.writeln('<div style="position:absolute;width:'+scrollerwidth+';height:'+scrollerheight+';clip:rect(0 '+scrollerwidth+' '+scrollerheight+' 0);left:0;top:0">')
+			document.writeln('<div id="first2" style="position:absolute;width:'+scrollerwidth+';left:0;top:1;">')
+			document.write(messages[0])
+			document.writeln('</div>')
+			document.writeln('<div id="second2" style="position:absolute;width:'+scrollerwidth+';left:0;top:0;visibility:hidden">')
+			document.write(messages[1])
+			document.writeln('</div>')
+			document.writeln('</div>')
+			document.writeln('</span>')
+			}
+			</script>
+<!--news-->
+  	</TD>
+  </TR>
+</TABLE>
+<!--news ends-->
+  	</TD>
+  </TR>
+</TABLE>
+<!--left side ends-->
+    </TD>
+    <TD width=1 bgcolor="#FF6666"><img src="images/space.gif"></TD>
+    <TD width=358 bgcolor="#F5F5F5" valign=top>
+<!--center starts-->
+<TABLE cellSpacing=0 cellPadding=0 width=358 height=196 border=0>
+  <TR>
+  	<TD width=25 height=146><img src="images/space.gif"></TD>
+  	<TD width=308 valign=top><BR>
+  	<P class=body>XMEC is the abbreviation for exMECians, the Alumni Association of Model Engineering College, Thrikkakara, Kochi. XMEC is an autonomous body representing eight hundred or more engineers who have earned their degrees in 
+  	Model Engineering College. It binds together MECians who are spread out in institutions and industries around the globe. The backbone of XMEC is the relentless support and cooperation of all exMECians who live in India and abroad and 
+  	who are proud to announce "MEC made me what I'm today”. </P></TD>
+  	<TD width=25><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+  	<TD height=15 colspan=3 align=right><A href="xmec.php" class=news>more >></A></TD>
+  </TR>
+  <TR>
+  	<TD height=15 colspan=3 bgcolor="#DBDBDB"><img src="images/space.gif"></TD>
+  </TR>
+</TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=350 height=100 border=0>
+  <TR>
+  	<TD width=117 align=center><A href="activities.html"><img src="images/activities.gif" border=0 width=85 height=90></A></TD>
+  	<TD width=116 align=center><A href="poll.html"><img src="images/polls.gif" border=0 width=55 height=85></A></TD>
+  	<TD width=117 align=center><A href="galleria.html"><img src="images/galleria.gif" border=0 width=76 height=88></A></TD>
+  </TR>
+</TABLE>
+<!--center ends-->
+    </TD>
+    <TD width=1 bgcolor="#FF6666"><img src="images/space.gif"></TD>
+    <TD width=174 valign=top>
+<!--rightt side starts-->
+<TABLE cellSpacing=0 cellPadding=0 width=174 border=0 bgcolor="#FFFFFF">
+  <TR>
+  	<TD height=134><A href="career.php"><img src="images/career.jpg" width=174 height=134 border=0></A></TD>
+  </TR>
+  <TR>
+  	<TD align=center height=3 background="images/hdot.gif"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+  	<TD align=center height=110>
+<!--XMECian search starts-->
+<TABLE cellSpacing=2 height=100 cellPadding=0 border=0>
+<form name=frmxsearch action="search.php" method="GET">
+<input type=hidden name=.s value=Search>
+  <TR>
+  	<TD colspan=3 align=center height=20><img src="images/xsearch.gif" width=151 height=12></TD>
+  </TR>
+  <TR>
+  	<TD><img src="images/name.gif" width=34 height=10></TD>
+  	<TD align=right><INPUT name=name type=text class=box size=10></TD>
+  	<TD><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+  	<TD><img src="images/place.gif" width=34 height=10></TD>
+  	<TD align=right><INPUT name=location type=text class=box size=10></TD>
+  	<TD><INPUT name=bttnxsearch type=image src="images/go.gif" border=0 width=15 height=15></TD>
+  </TR>
+  <TR>
+  	<TD colspan=3 align=center height=20><A href="search.php"><img src="images/adsearch.gif" width=156 height=11 border=0></A></TD>
+  </TR>
+</form> 
+</TABLE>
+<!--XMECian search ends-->  	
+   	</TD>
+  </TR>
+  <TR>
+  	<TD align=center height=3 background="images/hdot.gif"><img src="images/space.gif"></TD>
+  </TR>
+  <TR>
+  	<TD align=center height=46 valign=center><A href="emailpage.html"><img src="images/emailpage.gif" width=133 height=25 border=0></A></TD>
+  </TR>
+</TABLE>
+<!--right side ends-->
+<?php
+include 'footer.php';
+?>

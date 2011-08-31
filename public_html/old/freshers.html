@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<LINK rel=stylesheet href="style.css" type="text/css">
+</HEAD>
+<BODY topmargin=0 leftmargin=0 marginheight = "0" marginwidth = "0" bgcolor="#ffffff">
+<TABLE BGCOLOR="white" align=left border=0 cellPadding=0 cellSpacing=0 width="615" height="100%">
+<TR>
+<TD valign=top width=445><BR><BR>
+<font face=arial size=2 color="#FF0000"><strong>Students fresh out of college can send the following details so that the concerned person in XMEC can get in touch with you. </strong></font>
+<script Language="JavaScript" src="jslibxmec.js">
+</script>
+<script language="javascript">
+
+function check()
+{
+
+  if (false == validate())
+  {
+     
+   }
+   else
+   document.freshers.submit();
+   
+ }   
+function validate()
+{
+	if (document.freshers.Name.value == "") {
+	alert("Please enter your Name");
+	return false;
+	}
+	if (document.freshers.college.value == ""){ 
+	alert("Please record your College of Graduation ");
+	return false;
+	}
+	if (document.freshers.degree.value == ""){ 
+	alert("Please enter the Stream");
+	return false;
+	}
+	if(!CheckEmailStr(document.freshers.email.value )){
+//	alert("Please verify Personel Email");
+	return false;
+	}
+	return true;
+	}
+
+</script>
+     
+<FORM name="freshers" action="/cgi-bin/FormMail.pl">
+<INPUT TYPE="hidden" NAME="recipient" VALUE="freshers@xmec.net" >
+<INPUT TYPE="hidden" NAME="subject" VALUE="Help Needed for a Fresher - www.xmec.net">
+<INPUT TYPE="hidden" NAME="redirect" VALUE="http://www.xmec.net/thankyou.html">
+<TABLE BORDER=0 cellpadding=5 cellspacing=0 bordercolor="#dddddd" WIDTH="425">
+<TR>
+  <TD width=125><STRONG><FONT face=Arial size=2>Name</FONT></STRONG></TD>
+  <TD width=300><FONT face=Arial size=2><INPUT name=Name size=30></FONT></TD>
+</TR>
+<TR>
+<TD width=125><FONT face=Arial size=2><B>College</B></FONT></TD>
+<TD width=300><FONT face=Arial size=2><INPUT NAME="college" SIZE=30 
+           > </FONT>
+</TD></TR>
+<TR>
+  <TD width=125><STRONG><FONT face=Arial size=2>Stream</FONT></STRONG></TD>
+  <TD width=300><FONT face=Arial size=2><INPUT name=degree size=30></FONT></TD>
+</TR>
+<TR>
+<TD width=125><FONT face=Arial size=2><STRONG>Email ID</STRONG></FONT></TD>
+<TD width=300><INPUT NAME="email" SIZE=30>
+</TD></TR>
+<TR>
+<TD align=left>
+<A href="javascript:history.back();"><img src="images/back.gif" border=0></A>
+</TD>
+<TD align=center>
+<INPUT TYPE="button" NAME="sendit" VALUE="Send" onClick="javascript:check()">
+</TD>
+</TR>
+</TABLE> </FORM>
+</TD>
+<TD width=170 valign=top align=middle><BR><BR><BR><BR></TD>
+<TR>
+<TD colspan=2>
+      <TABLE align=center border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TR>
+          <TD align=middle height=30 valign=top></TD>
+        </TR>
+        <TR>
+			<TD align=middle height=30 valign=bottom><font face=arial size=-1 color="#999999">Site Powered by &nbsp;<A href="http://www.marlabs.com"><IMG align=absMiddle border=0 src="images/marlabs.jpg"></A> &nbsp;© Copyright 2001</font></TD>
+		</TR>
+      </TABLE>
+</TD></TR>
+</TR></TABLE> 
+</BODY>
+</HTML>
+

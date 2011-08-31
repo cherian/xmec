@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="GENERATOR" content="analog 5.22/Unix">
+<title>Web Server Statistics for you</title>
+</head>
+<body>
+<h1><a NAME="Top"><IMG src="/icons/analogo.gif" alt=""> Web Server Statistics for</a> you</h1>
+
+Program started at Wed-06-Aug-2003 04:11.
+<br>Analysed requests from Fri-01-Aug-2003 22:01 to Wed-06-Aug-2003
+  04:04 (4.25 days).
+<hr>
+<h2><a NAME="gensum">General Summary</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: General Summary: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report contains overall statistics.</em>
+<p><b>Successful requests:</b> 969
+<br><b>Average successful requests per day:</b> 227
+<br><b>Successful requests for pages:</b> 88
+<br><b>Average successful requests for pages per day:</b> 20
+<br><b>Failed requests:</b> 7
+<br><b>Redirected requests:</b> 11
+<br><b>Distinct files requested:</b> 252
+<br><b>Distinct hosts served:</b> 5
+<br><b>Data transferred:</b> 6.211 megabytes
+<br><b>Average data transferred per day:</b> 1.460 megabytes
+<hr>
+<h2><a NAME="dayrep">Daily Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: Daily Report: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the activity in each day.</em>
+<p>
+Each unit (<img src="/icons/barb1.gif" alt="+">) represents 2 requests
+  for pages or part thereof.
+<pre><tt>     date: reqs: pages:  Mbytes: 
+---------: ----: -----: -------: 
+ 1/Aug/03:   14:     2:   0.032: <img src="/icons/barb1.gif" alt="+">
+ 2/Aug/03:    1:     0:   0.000: 
+
+ 3/Aug/03:  306:    18:   1.496: <img src="/icons/barb8.gif" alt="+++++++++"><img src="/icons/barb1.gif" alt="">
+ 4/Aug/03:  377:    35:   1.369: <img src="/icons/barb16.gif" alt="++++++++++++++++++"><img src="/icons/barb2.gif" alt="">
+ 5/Aug/03:   85:    12:   0.138: <img src="/icons/barb4.gif" alt="++++++"><img src="/icons/barb2.gif" alt="">
+ 6/Aug/03:  186:    21:   3.173: <img src="/icons/barb8.gif" alt="+++++++++++"><img src="/icons/barb2.gif" alt=""><img src="/icons/barb1.gif" alt="">
+</tt></pre>
+Busiest day:  4/Aug/03 (35 requests for pages).
+<hr>
+<h2><a NAME="daysum">Daily Summary</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: Daily Summary: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the total activity for each day of the week, summed over all the weeks in the report.</em>
+<p>
+Each unit (<img src="/icons/barb1.gif" alt="+">) represents 1 request
+  for a page.
+<pre><tt>day: reqs: pages: 
+---: ----: -----: 
+Sun:  306:    18: <img src="/icons/barb16.gif" alt="++++++++++++++++++"><img src="/icons/barb2.gif" alt="">
+Mon:  377:    35: <img src="/icons/barb32.gif" alt="+++++++++++++++++++++++++++++++++++"><img src="/icons/barb2.gif" alt=""><img src="/icons/barb1.gif" alt="">
+Tue:   85:    12: <img src="/icons/barb8.gif" alt="++++++++++++"><img src="/icons/barb4.gif" alt="">
+Wed:  186:    21: <img src="/icons/barb16.gif" alt="+++++++++++++++++++++"><img src="/icons/barb4.gif" alt=""><img src="/icons/barb1.gif" alt="">
+Thu:    0:     0: 
+Fri:   14:     2: <img src="/icons/barb2.gif" alt="++">
+Sat:    1:     0: 
+</tt></pre>
+<hr>
+<h2><a NAME="hoursum">Hourly Summary</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: Hourly Summary: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the total activity for each hour of the day, summed over all the days in the report.</em>
+<p>
+Each unit (<img src="/icons/barb1.gif" alt="+">) represents 1 request
+  for a page.
+<pre><tt>hour: reqs: pages: 
+----: ----: -----: 
+   0:   29:     0: 
+   1:   67:     5: <img src="/icons/barb4.gif" alt="+++++"><img src="/icons/barb1.gif" alt="">
+   2:  263:    27: <img src="/icons/barb16.gif" alt="+++++++++++++++++++++++++++"><img src="/icons/barb8.gif" alt=""><img src="/icons/barb2.gif" alt=""><img src="/icons/barb1.gif" alt="">
+   3:  145:    16: <img src="/icons/barb16.gif" alt="++++++++++++++++">
+   4:   73:    12: <img src="/icons/barb8.gif" alt="++++++++++++"><img src="/icons/barb4.gif" alt="">
+   5:    0:     0: 
+   6:    0:     0: 
+   7:   38:     3: <img src="/icons/barb2.gif" alt="+++"><img src="/icons/barb1.gif" alt="">
+   8:   57:     0: 
+   9:   81:     2: <img src="/icons/barb2.gif" alt="++">
+  10:    0:     0: 
+  11:   60:     7: <img src="/icons/barb4.gif" alt="+++++++"><img src="/icons/barb2.gif" alt=""><img src="/icons/barb1.gif" alt="">
+  12:    0:     0: 
+  13:    0:     0: 
+  14:    0:     0: 
+  15:    0:     0: 
+  16:    0:     0: 
+  17:    0:     0: 
+  18:    0:     0: 
+  19:    0:     0: 
+  20:    0:     0: 
+  21:   56:     5: <img src="/icons/barb4.gif" alt="+++++"><img src="/icons/barb1.gif" alt="">
+  22:   56:     7: <img src="/icons/barb4.gif" alt="+++++++"><img src="/icons/barb2.gif" alt=""><img src="/icons/barb1.gif" alt="">
+  23:   44:     4: <img src="/icons/barb4.gif" alt="++++">
+</tt></pre>
+<hr>
+<h2><a NAME="org">Organisation Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: Organisation Report: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the organisations of the computers which requested files.</em>
+<p><img src="org.png" alt="">
+<p>
+Listing organisations, sorted by the number of requests.
+<pre><tt>reqs: %bytes: organisation
+----: ------: ------------
+ 456: 66.53%: 202.56
+ 415: 22.72%: 203.200
+  60:  4.19%: 63.12
+  38:  6.56%: 156.153
+</tt></pre>
+<hr>
+<h2><a NAME="ref">Referrer Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: Referrer Report: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the referrers (where people followed links from, or pages which included this site's images).</em>
+<p><img src="ref.png" alt="">
+<p>
+Listing referring URLs with at least 20 requests, sorted by the
+  number of requests.
+<pre><tt>reqs: URL
+----: ---
+ 168: <a href="http://www.xmec.addr.com/menu_frame.php">http://www.xmec.addr.com/menu_frame.php</a>
+  70:   <a href="http://www.xmec.addr.com/menu_frame.php?target=aboutus.html">http://www.xmec.addr.com/menu_frame.php?target=aboutus.html</a>
+  59:   <a href="http://www.xmec.addr.com/menu_frame.php?action=null&amp;target=aboutus.html">http://www.xmec.addr.com/menu_frame.php?action=null&amp;target=aboutus.html</a>
+  13:   <a href="http://www.xmec.addr.com/menu_frame.php?target=updations.php">http://www.xmec.addr.com/menu_frame.php?target=updations.php</a>
+  12:   <a href="http://www.xmec.addr.com/menu_frame.php?action=logout">http://www.xmec.addr.com/menu_frame.php?action=logout</a>
+  94: <a href="http://www.xmec.addr.com/aboutus.html">http://www.xmec.addr.com/aboutus.html</a>
+  78: <a href="http://www.xmec.addr.com/index1.html">http://www.xmec.addr.com/index1.html</a>
+  48: <a href="http://www.xmec.addr.com/xmec.php">http://www.xmec.addr.com/xmec.php</a>
+  27:   <a href="http://www.xmec.addr.com/xmec.php?target=aboutus.html">http://www.xmec.addr.com/xmec.php?target=aboutus.html</a>
+  15:   <a href="http://www.xmec.addr.com/xmec.php?target=updations.php">http://www.xmec.addr.com/xmec.php?target=updations.php</a>
+  39: <a href="http://xmec.addr.com/xmec.php">http://xmec.addr.com/xmec.php</a>
+  24:   <a href="http://xmec.addr.com/xmec.php?target=search.php">http://xmec.addr.com/xmec.php?target=search.php</a>
+  33: <a href="http://xmec.addr.com/index1.html">http://xmec.addr.com/index1.html</a>
+  29: <a href="http://www.xmec.addr.com/careers.html">http://www.xmec.addr.com/careers.html</a>
+  28: <a href="http://xmec.addr.com/menu_frame.php">http://xmec.addr.com/menu_frame.php</a>
+  28: <a href="http://www.xmec.addr.com/xnews.html">http://www.xmec.addr.com/xnews.html</a>
+  27: <a href="http://xmec.addr.com/new/">http://xmec.addr.com/new/</a>
+  27: <a href="http://www.xmec.addr.com/new/">http://www.xmec.addr.com/new/</a>
+  23: <a href="http://www.xmec.addr.com/topbanner.html">http://www.xmec.addr.com/topbanner.html</a>
+  20: <a href="http://xmec.addr.com/members.php">http://xmec.addr.com/members.php</a>
+  20: <a href="http://www.xmec.addr.com/problem.html">http://www.xmec.addr.com/problem.html</a>
+ 208: [not listed: 44 URLs]
+</tt></pre>
+<hr>
+<h2><a NAME="browsum">Browser Summary</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: Browser Summary: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the vendors of visitors' browsers.</em>
+<p><img src="browsum.png" alt="">
+<p>
+Listing browsers with at least 1 request for a page, sorted by 
+  the number of requests for pages.
+<pre><tt>no.: reqs: pages: browser
+---: ----: -----: -------
+  1:  755:    83: MSIE
+   :  507:    57:   MSIE/5
+   :  248:    26:   MSIE/6
+  2:  181:     5: Netscape
+   :  181:     5:   Mozilla/1
+   :   33:     0: [not listed: 3 browsers]
+</tt></pre>
+<hr>
+<h2><a NAME="os">Operating System Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: Operating System Report: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the operating systems used by visitors.</em>
+<p><img src="os.png" alt="">
+<p>
+Listing operating systems, sorted by the number of requests for
+  pages.
+<pre><tt>no.: reqs: pages: OS
+---: ----: -----: --
+  1:  755:    83: Windows
+   :  755:    83:   Windows 2000
+  2:  181:     5: Unix
+   :  181:     5:   Linux
+  3:   33:     0: OS unknown
+</tt></pre>
+<hr>
+<h2><a NAME="code">Status Code Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: Status Code Report: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the HTTP status codes of all requests.</em>
+<p><img src="code.png" alt="">
+<p>
+Listing status codes, sorted numerically.
+<pre><tt>reqs: status code
+----: -----------
+ 523: 200 OK
+   5: 206 Partial content
+   1: 301 Document moved permanently
+  10: 302 Document found elsewhere
+ 441: 304 Not modified since last retrieval
+   7: 404 Document not found
+</tt></pre>
+<hr>
+<h2><a NAME="size">File Size Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: File Size Report: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the sizes of files.</em>
+<p><img src="size.png" alt="">
+<pre><tt>       size: reqs: pages:  Mbytes: 
+-----------: ----: -----: -------: 
+          0:  447:    34:   0.000: 
+   1b-  10b:    0:     0:   0.000: 
+  11b- 100b:   25:     0:   0.001: 
+ 101b-  1kb:  122:    10:   0.070: 
+  1kb- 10kb:  300:    32:   1.344: 
+ 10kb-100kb:   69:    12:   1.441: 
+100kb-  1Mb:    5:     0:   1.056: 
+  1Mb- 10Mb:    1:     0:   2.296: 
+</tt></pre>
+<hr>
+<h2><a NAME="type">File Type Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: File Type Report: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the extensions of requested files.</em>
+<p><img src="type.png" alt="">
+<p>
+Listing extensions with at least 0.1% of the traffic, sorted by the
+  amount of traffic.
+<pre><tt>reqs: %bytes: extension
+----: ------: ---------
+   9: 43.65%: .wmv
+   8: 17.31%: .swf
+ 207: 15.94%: .php  [PHP]
+ 263: 13.01%: .jpg  [JPEG graphics]
+  74:  4.41%: .html [Hypertext Markup Language]
+ 316:  3.58%: .gif  [GIF graphics]
+  16:  0.90%: .js   [JavaScript code]
+  12:  0.76%: [directories]
+  61:  0.26%: .css  [Cascading Style Sheets]
+   2:  0.13%: .htm  [Hypertext Markup Language]
+   1:  0.06%: [not listed: 1 extension]
+</tt></pre>
+<hr>
+<h2><a NAME="dir">Directory Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: Directory Report: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the directories from which files were requested. (The figures for each directory include all of its subdirectories.)</em>
+<p><img src="dir.png" alt="">
+<p>
+Listing directories with at least 0.01% of the traffic, sorted by the
+  amount of traffic.
+<pre><tt>reqs: pages:  Mbytes: directory
+----: -----: -------: ---------
+ 338:    77:   3.896: [root directory]
+ 526:     0:   2.056: /images/
+  77:    11:   0.190: /new/
+  25:     0:   0.068: /phorum/
+   3:     0:   0.000: [not listed: 1 directory]
+</tt></pre>
+<hr>
+<h2><a NAME="fail">Failure Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: Failure Report: <a HREF="#req">Request Report</a>)
+<p><em>This report lists the files that caused failures, for example files not found.</em>
+<p><img src="fail.png" alt="">
+<p>
+Listing files, sorted by the number of failed requests.
+<pre><tt>reqs: file
+----: ----
+   3: /phorum.php
+   1: /cgi-bin/FormMail.pl
+   1: /new/preferences.php
+   1: /new/career.html
+   1: /new/gallery.html
+</tt></pre>
+<hr>
+<h2><a NAME="req">Request Report</a></h2>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: Request Report)
+<p><em>This report lists the files on the site.</em>
+<p><img src="req.png" alt="">
+<p>
+Listing files with at least 20 requests, sorted by the number of
+  requests.
+<pre><tt>reqs:  Mbytes:       last time: file
+----: -------: ---------------: ----
+  80:   0.465:  6/Aug/03 03:59: /menu_frame.php
+  28:   0.124:  3/Aug/03 09:33:   /menu_frame.php?target=search.php
+  11:   0.070:  6/Aug/03 03:59:   /menu_frame.php?target=aboutus.html
+  55:   0.006:  6/Aug/03 04:04: /style.css
+  39:   0.034:  6/Aug/03 03:59: /xmec.php
+  16:   0.013:  3/Aug/03 22:07:   /xmec.php?target=search.php
+  11:   0.009:  6/Aug/03 03:59:   /xmec.php?target=aboutus.html
+  21:   0.003:  6/Aug/03 03:59: /images/sub2.gif
+  21:   0.123:  4/Aug/03 02:40: /search.php
+ 753:   5.578:  6/Aug/03 04:04: [not listed: 209 files]
+</tt></pre>
+<hr>
+<i>This analysis was produced by <a HREF="http://www.analog.cx/">analog 5.22</a>.
+<br><b>Running time:</b> Less than 1 second.
+</i>
+<p>(<b>Go To</b>: <a HREF="#Top">Top</a>: <a HREF="#gensum">General Summary</a>: <a HREF="#dayrep">Daily Report</a>: <a HREF="#daysum">Daily Summary</a>: <a HREF="#hoursum">Hourly Summary</a>: <a HREF="#org">Organisation Report</a>: <a HREF="#ref">Referrer Report</a>: <a HREF="#browsum">Browser Summary</a>: <a HREF="#os">Operating System Report</a>: <a HREF="#code">Status Code Report</a>: <a HREF="#size">File Size Report</a>: <a HREF="#type">File Type Report</a>: <a HREF="#dir">Directory Report</a>: <a HREF="#fail">Failure Report</a>: <a HREF="#req">Request Report</a>)
+<p><a href="http://validator.w3.org/">
+<img src="/icons/html2.gif"
+alt="HTML 2.0 Conformant!"></a>
+</body>
+</html>

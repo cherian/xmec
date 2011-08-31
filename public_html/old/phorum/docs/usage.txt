@@ -1,0 +1,241 @@
+Phorum
+http://www.phorum.org
+
+***********************************
+***  Creating a forum or folder ***
+***********************************
+
+ 1. Select 'New Forum' or 'New Folder'.
+
+ 2. Fill out this form completely and hit 'Update'.  If you are unsure of
+    some information, consult your systems admin.
+
+    Field                  Description
+    ------------------------------------------------------------------------
+    Name                   This is the name of the Forum that user will see.  This
+                           is a required field
+
+    Description            This will appear under the forum name and will tell
+                           users about the subject matter of the forum.  This is a
+                           required field
+
+    Config Suffix          This is used to allow seperate header, footer,
+                           censor and bad* files.  See Other Features for more.
+
+    Folder                 This is the folder under which this forum will be
+                           listed.
+
+    Table Name             This is the table name that will store the messages
+                           for this forum.  This is a required field, and if it
+                           is a new table, it must not collide with any existing
+                           table names
+
+    Table already exists   Check this if the table name already exists for this
+                           forum.
+
+    Moderation             This determines the level of moderation the forum
+                           will have.
+
+    Moderator Email        This is the email address of the forum moderator.
+                           This should be given even if there is no moderation.
+
+    Moderator Password     This must be given even if there is no moderation.
+                           When filled into the email box of the post form, the
+                           moderators post will be bolded and HTML will not be
+                           stripped.  This is a required field.
+
+    Mailing List Address   If you would like all forum messages to go to an
+                           email address, supply it here.
+
+    Mailing List Return    If you would like all emails sent from forum to come
+                           back to a specific address, enter it here.
+
+    Duplicate Posts        Phorum can eliminate some duplicate posts.  This does
+                           require and extra couple of queries.
+
+    Messages Per Page      This numer determines the minimum messages that are
+                           shown on a page.  Phorum stops displaying messages
+                           when this number is met and the last thread is
+                           completely displayed.
+
+    Thread Type            Select between multiple level nesting fo messages or
+                           single level of nesting.  single is faster but can
+                           be confusing.
+
+    Thread Display         Select between collapsed threads or expanded threads.
+                           Collapsed is faster.  This only sets the default.
+                           Users can select how they want it viewed.
+
+    Read Messages          Select between one message per page or all messages
+                           in a thread on a page.  Again like above this is only
+                           the default.
+
+    Moderator Host         When moderators post using the moderator password
+                           their IP is replaced with this value.  This gives the
+                           moderator more anonymity.
+
+    Language               Select the language for the forum.  More files can be
+                           found at the Phorum web site.
+
+    Phorum Code            You can allow HTML in your posts through the use of
+                           Phorum Code.  See Features below for more information.
+
+    Table Width            This value sets the table width of all tables with
+                           exception of the post table.
+
+    Table Header Color     Color in hex value of the table headers.
+
+    Table Header Font Color  Color in hex value of the table header font.
+
+    Main Table Body Color  Color in hex value of the main table bodies.
+
+    Main Table Body Font Color  Color in hex value of the main table fonts.
+
+    Alt. Table Body Color  Color in hex value of the alt table bodies.
+
+    Alt. Table Body Font Color  Color in hex value of the main table font.
+
+    Navigation Background Color  Color in hex value of the navigation background
+
+    Navigation Font Color   Color in hex value of the navigation font.
+
+ 3. Before you can see the forum in the forum list, it must be activated.
+    Select 'Activate Forum/Folder' and hit 'Continue'.  The forum should now be
+    active.  Select the link 'forums' at the top of the page.
+
+Follow steps 1-3 to add more forums.
+
+
+***********************
+***  Features ***
+***********************
+
+ 1. Multiple forums on one engine.  You can create different header, footer,
+    censor, and bad* files for different forums.  Simply fill in 'Config Suffix'
+    when creating your forums with a string and then create files named
+    header_suffix.inc where suffix is the string you gave the admin when
+    creating the forum.
+
+ 2. Database independence.  Phorum currently supports MySQL and PostgreSQL.
+    To support your databse, convert abstract.php to work with your db.  To
+    change the db engine used by Phorum refer to step 1.2 above.
+
+ 3. Multi-leveled threading.  This is enabled by default, but can be set off if
+    desired on a forum by forum basis.  Select the forum you want to enable it
+    for, then select 'Edit Properties'.  Change Thread Type from Multiple Levels
+    to Single Level
+
+ 4. Emailing readers when replies are posted to a thread.
+
+ 5. Phorum Code and automatic URL linking.  As of Phorum 3.3.2, users can
+    use Phorum Code to spice up their posts.  Phorum Code is much like the
+    standard way many message board systems mark up posts.  Examples:
+
+    [url]http://phorum.org[/url]
+
+        Creates a url that is linked.
+
+    [url=http://phorum.org]phorum.org[/url]
+
+        Links the text 'phorum.org' to http://phorum.org.
+
+    [email]email@address.com[/email]
+
+        Creates a linked email address
+
+    [img]http://phorum.org/logo.gif[/img]
+
+        Creates an image tag that will show that image.
+
+    [b]Bold Text[/b]
+    [u]Underlined Text[/u]
+    [i]Italicized Text[/i]
+
+        Makes the text bold, underlined, or italicized.
+
+    [center]Centered Text[/center]
+
+        Centers text.
+
+    [quote]Does this quote text?[/quote]
+
+        This will indent the text inside the tags.
+
+
+    Tags can be combined:
+
+        [url=http://phorum.org][img]http://phorum.org/logo.gif[/img][/url]
+
+
+    Phorum will also automatically link urls that are inside <>.
+
+        <http://phorum.org/>
+
+ 6. Take Phorum up and down from the admin.  This is great for maintenence.
+    Select 'Down Phorum' from the main menu, enter the master password and hit
+    'Login'.  All requests to the Phorum will now be sent to down.php.  To
+    bring Phorum back up, select 'Up Phorum' from the main menu, enter the
+    master password and hit 'Login'.
+
+ 7. Moderator Privileges.  When the master password or the forums moderator
+    password is entered in place of the email address, the message is given
+    moderator priveleges.  This includes: the message will be bolded in the
+    message list; the host/ip will be replaced with the string specified by
+    the moderator under 'when moderator post, replace host with' in the admin
+    section for that forum. The post will also be given full HTML privileges.
+
+ 8. index, list, read, post, down, and violation file names as well as the
+    extension are defined as variables.  This can be changed in the
+    'Master Settings' section of the admin.
+    NOTE: THIS DOES NOT CHANGE THE FILE NAMES.  YOU MUST DO THIS MANUALLY.
+
+ 9. User Banning.  You can ban users by email, name, or their IP/HOST.  See
+    bad_*.inc for details of use.  These can be created for each forum.  See
+    number 1 for details.
+
+10. Allows for censored posting.  There are instructions in censor.php as to how
+    to use it.  By default the f word and sh-t are censored for example.
+
+11. Allows for disallowing service to a given author, email or domain.
+    Entries in bad_names.inc, bad_hosts.inc and bad_emails.inc will be
+    checked for when a message is posted.  If any are present, the user will
+    be forwarded to violation.php.  There are instructions in those files
+    as to how to use them.
+
+12. Localized text (Multi-lingual).  Additional language files are available at
+    http://www.phorum.org/local.php
+
+13. Ability to quote text from original message.  This is not available if
+    viewing the messages in "Flat View".
+
+14. Colors, table sizes configurable in Admin
+
+15. Control number of messages displayed in main list.
+
+16. Edit a post or delete entire threads or individual messages.
+
+17. Search Engine (needs improvement)
+
+18. Collapsible threads.  This can be defaulted on or off in the forum admin
+    section.
+
+**********************
+*** Add-on Scripts ***
+**********************
+
+There are several scripts in the scripts dir.  Instructions are included in each
+file.
+
+*********************
+*** Upgrading     ***
+*********************
+
+Upgrading from Phorum 1.x.
+
+There is no direct path from 1.x to 3.1.  If it appears to be in demand, it may
+be developed.
+
+Upgrading from Phorum 3.x
+
+Read docs/upgrade.txt for instructions.
+

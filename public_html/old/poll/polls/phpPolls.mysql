@@ -1,0 +1,32 @@
+#
+# $  mysql -h mysql-server-host mrh <mrh.mysql
+#
+CREATE TABLE vbooth_data (
+   pollID int(11) NOT NULL,
+   optionText char(50) NOT NULL,
+   optionCount int(11) DEFAULT '0' NOT NULL,
+   voteID int(11) DEFAULT '0' NOT NULL
+);
+
+CREATE TABLE vbooth_desc (
+   pollID int(11) NOT NULL auto_increment,
+   pollTitle char(100) NOT NULL,
+   timeStamp int(11) NOT NULL,
+   PRIMARY KEY (pollID)
+);
+
+CREATE TABLE vbooth_ip (
+   pollID int(11) NOT NULL,
+   voteID int(11) DEFAULT '0' NOT NULL,
+   votersIP char(16) NOT NULL,
+   timeStamp int(11) NOT NULL
+);
+
+CREATE TABLE vbooth_log (
+   logID int(11) NOT NULL auto_increment,
+   pollID int(11) NOT NULL,
+   voteID int(11) DEFAULT '0' NOT NULL,
+   votersIP char(16) NOT NULL,
+   timeStamp int(11) NOT NULL,
+   PRIMARY KEY (logID)
+);

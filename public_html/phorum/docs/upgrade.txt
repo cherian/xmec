@@ -1,0 +1,37 @@
+Upgrade instructions for Phorum 3.3
+
+3.2.x and 3.1.x
+----------------
+
+Place the files in a new directory on your web server.  The standard
+install process will allow you to upgrade your database tables.
+
+You will however need to review your Phorum Setup options in the admin
+once you have the install done.  Some changes in the Phorum internals,
+in addition to new fields in those options, made it unreliable to import
+these from the old config file.
+
+This covers things like HTML Settings, Global Options, etc.
+
+
+3.0.x
+------
+
+The upgrade30.php script is currently located in the scripts/ folder.
+It must be run from a subdirectory of the main Phorum installation,
+and you should remove it from your server after the upgrade is done.
+
+1. Install Phorum as per install.txt.
+2. Copy forums.inf from your old location to another location
+3. Modify the variable $oldinfpath in upgrade30.php to point to
+   the location that you placed the copy of forums.inf
+4. Comment out all the $DB lines in the old forums.inf by
+   placing a // at the beginning of each line.  e.g.:
+//   $DB = new db();
+5. Comment out the $q lines.
+6. Comment out the include lines.
+7. Run upgrade30.php from a browser.
+8. Load the admin script for your new installation and select:
+   Rebuild INF File
+9. In the same area, select:
+   Reset Main Sequence

@@ -1,0 +1,239 @@
+.box{font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:none;background-color:#E7F3FB;height:20px; width:85px;border: 1px solid; #000000;}
+.lbox{font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:none;background-color:#E7F3FB;height:20px; width:144px; border:1px solid; #000000;}
+.cbox{font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:none;background-color:#E7F3FB;height:25px; border: 1px solid; #000000;}
+.tbox{font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:none;background-color:#E7F3FB;height:200px; width:225px;width="400";border: 1px solid; #000000;}
+
+
+.box1{font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:none;background-color:#E4E3E3;height:20px; width:100px;border: 1px solid; #000000;}
+
+.box2{font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:none;background-color:#E4E3E3;height:20px; width:80px;border: 1px solid; #000000;}
+
+.link{font-family:verdana; font-size:10px; color:#0000FF;font-weight:regular; text-decoration:none;}
+.link:hover{font-family:verdana; font-size:10px; color:#CC0000;font-weight:regular; text-decoration:underline;}
+
+.flink{font-family:verdana; font-size:10px; color:#008000;font-weight:bold; text-decoration:none;}
+.flink:hover{font-family:verdana; font-size:10px; color:#CC0000;font-weight:bold; text-decoration:underline;}
+`
+
+.body{font-family:verdana; font-size:10px; color:#333333;font-weight:regular; text-decoration:none; text-align:justify;line-height:130%;}
+
+.head{font-family:verdana; font-size:10px; color:#FF6666;font-weight:regular; text-decoration:none;}
+
+.name{font-family:verdana; font-size:10px; color:#CC0000;font-weight:regular; text-decoration:none;}
+
+.fname{font-family:verdana; font-size:10px; color:#FD9232;font-weight:bold; text-decoration:none;}
+
+
+.footer{font-family:verdana; font-size:10px; color:#999999;font-weight:regular; text-decoration:none;}
+
+.news{font-family:verdana; font-size:10px; color:#4F585F;font-weight:regular; text-decoration:none;line-height:150%;}
+.news:hover{font-family:verdana; font-size:10px; color:#CC0000;font-weight:regular; text-decoration:none;line-height:150%;}
+
+.fbody{font-family:verdana; font-size:10px; color:#333333;font-weight:regular; text-decoration:none; text-align:justify;line-height:130%;}
+
+
+
+BODY
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+TD
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+TR
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+P
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+UL
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+OL
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+LI
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+INPUT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+SELECT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+DL
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+DD
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+DT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+FONT
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px
+}
+.PhorumBodyArea
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px;
+    WIDTH: 500px
+}
+.PhorumListTable
+{
+    BORDER-BOTTOM: #5482b2 4px groove;
+    BORDER-LEFT: #5482b2 4px groove;
+    BORDER-RIGHT: #5482b2 4px groove;
+    BORDER-TOP: #5482b2 4px groove
+}
+//border:unknown 1 Outset border-color:unknown #5482B2 
+.PhorumListRow
+{
+    BORDER-BOTTOM: #5482b2 4px groove;
+    BORDER-LEFT: #5482b2 4px groove;
+    BORDER-RIGHT: #5482b2 4px groove;
+    BORDER-TOP: #5482b2 4px groove;
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 10px;
+    HEIGHT: 21px
+}
+.PhorumListHeader
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 14px;
+    FONT-WEIGHT: bold;
+    HEIGHT: 24px
+}
+.PhorumForumTitle{font-family:verdana; font-size:10px; color:#0000FF;font-weight:regular; text-decoration:none;}
+.PhorumForumTitle:hover
+{font-family:verdana; font-size:10px; color:#CC0000;font-weight:regular; text-decoration:underline;}
+/*.PhorumForumTitle
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 24px;
+    FONT-WEIGHT: bold
+}*/
+
+.PhorumTableHeader
+{
+    FONT-FAMILY: Verdana, Arial, Clean, Helvetica, sans-serif;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold
+}
+.PhorumNav{font-family:verdana; font-size:10px; color:#0000FF;font-weight:regular; text-decoration:none;}
+.PhorumNav:hover {font-family:verdana; font-size:10px; color:#000000;font-weight:regular; text-decoration:underline;}
+
+i/*.PhorumNav
+{
+    FONT-FAMILY: Geneva, Verdana, MS Sans Serif , Clean, sans-serif;
+    FONT-SIZE: 10px
+}*/
+.PhorumNewFlag
+	
+{   
+    COLOR: red;
+    FONT-FAMILY: Geneva, Verdana, MS Sans Serif , Clean, sans-serif;
+    FONT-SIZE: 10px
+}
+.PhorumMessage
+{
+    FONT-FAMILY: Geneva, Verdana, MS Sans Serif , Clean;
+    FONT-SIZE: 10px
+}
+.p_link{font-family:verdana; font-size:10px; font-weight:regular; text-decoration:none;}
+.p_link:hover{font-family:verdana; font-size:10px; font-weight:regular; text-decoration:underline;}
+
+
+//New for Calender
+
+/*BODY 
+{background-color: #'.$background_color.'; border-style: none; border-width: 0px; color: #'.$plain_text_color.'; 
+font-family: Arial; font-size: 12px; font-style: normal; margin: 0px; padding: 4px;
+text-align: left; text-decoration: none; text-indent: 0px}
+
+A 
+{border-style: none; border-width: 0px; color: #'.$link_color.'; font-family: Arial; font-size: 12px;
+font-style: normal; margin: 0px; padding: 0px; text-align: left; text-decoration: none;
+text-indent: 0px}
+
+A.normal 
+{font-size: 12px; text-decoration: underline}
+
+A.calendar 
+{color: #'.$calendar_link_color.'; font-size:10px}
+
+A.bottom 
+{color: #'.$link_color.'; font-size:10px}
+
+
+P 
+{font-size: 10px; text-align:center; color: #'.$link_color,'}
+
+IMG 
+{border-style: none; border-width: 0px; margin: 0px; padding: 0px}
+/*
+TABLE 
+{border-style: none; margin: 0px; padding: 0px; border-width: none; font-size: 12px; text-indent: 0px;
+font-weight: normal; width: 630px; background-color: #'.$calendar_bg_color.'; color: #'.$plain_text_color.'}
+
+TABLE.top 
+{width: 100%; height: 60px}
+
+TABLE.form 
+{width: 100%; height: 60px; text-align: center; border-style:groove; border-width: 0px; 
+background-color: #'.$background_color.'; color: #'.$plain_text_color.'}
+
+TR 
+{border-style: none; border-width: 0px; margin: 0px; padding: 0px}
+		
+TD 
+{border-style: solid; border-width: thin; margin: 0px; padding: 0px; border-color: #'.$calendar_border_color.';
+font-weight: normal; background-color: #'.$calendar_bg_color.'}
+
+TD.top
+{padding: 4px; font-size: 16px; height: 60px; text-align:center; font-weight: bold; 
+border-style: none; border-width: 0px}
+
+TD.ends 
+{padding: 4px; font-size: 12px; height: 60px; text-align: center; border-style: none; 
+border-width: 0px; font-weight: bold}
+
+TD.form 
+{padding: 0px; font-size: 12px; border-style: none; border-width: 0px; 
+background-color: #'.$background_color.'; color: #'.$plain_text_color.'}
+
+
+.days 
+{padding: 2px; font-size: 12px; width: 90px; height: 40px; text-align:center; font-weight: bold}
+		
+.curday 
+{width: 90px; text-align: left; font-size: 10px; height: 70px; background-color: #'.$current_day_color.'}
+
+.calendar 
+{width: 90px; text-align: left; font-size: 10px; height: 70px}
+*/

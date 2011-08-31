@@ -1,0 +1,4 @@
+DirectoryIndex wwwboard.html index.html index.htm index.cgi
+
+ExpiresActive On
+ExpiresDefault A5

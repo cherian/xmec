@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS poll_questions (
+  poll_id         int unsigned not null auto_increment,
+  title           varchar(255) not null,
+  poll_question   text not null,
+  start_date      datetime not null,
+  end_date        datetime not null,
+  is_anonymous    bool default '0',
+  PRIMARY KEY( poll_id )
+);
+
+CREATE TABLE IF NOT EXISTS poll_answers (
+  poll_id         int unsigned not null,
+  ans_seq         tinyint unsigned not null,
+  ans_desc        varchar(255) not null,
+  votes           int unsigned not null default '0',
+  PRIMARY KEY     ( poll_id, ans_seq )
+);
+  
+CREATE TABLE IF NOT EXISTS poll_responses (
+  poll_id         int unsigned not null,
+  user_id         varchar(255) not null,
+  vote_ans        tinyint unsigned not null,
+  opt_response    varchar(255) binary,
+  PRIMARY KEY     ( poll_id, user_id )
+);
+

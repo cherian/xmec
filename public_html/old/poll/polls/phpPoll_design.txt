@@ -1,0 +1,113 @@
+phpPolls - Design notes
+
+Document written by Till Gerken (tig@skv.org)
+
+Note
+
+This document has been written for the very first version upon request
+of uRoam, Inc., who sponsored version 1.0.0 of this project. I don't
+maintain this document anymore as I am not sure if it really makes sense
+to keep such a document in the distro, however, Alexander Sokolsky from
+uRoam thought it would be an addition to the package. Some information
+here might get outdated and turn out to be incorrect as new versions
+of the script are released, so please don't take everything in here
+for granted. In case you have any questions regarding design, I can
+be reached via email.
+
+Introduction
+
+phpPolls is a PHP3 script for conducting polls, meaning it is able to set up
+a voting booth which can contain multiple polls, do simple administration
+tasks as well as graphically display the results of each poll.
+
+Concepts
+
+phpPolls was written to use MySQL as underlying database architecture, thus
+it uses PHP3's MySQL library functions to maintain all tables. Database
+abstraction would have seemed to be too complicated for a small project
+such as this, so all database queries have been hardcoded.
+
+The script has been divided into separate files, each performing a dedicated
+task. One of the main priorities in creating phpPolls has been easiness of
+setup, thus most parts of the script work in a stand-alone-like matter with
+few or no control from a higher level procedure.
+
+Basically phpPolls can be divided into two major sections, the administration
+section and the application section.
+
+The administration section
+
+The administration section consists of just one single module named
+phpPollAdmin.php3 which runs completely standalone. It has been implemented
+this way to start off working with the script right away without having
+to do any "pre-coding". However, the script is completely modular, by removing
+the main() part of the script and having all globals be passed as parameters
+to the different functions, administration functionality can be easily made
+available as an API to other modules.
+
+The application section
+
+The application section consists of three different modules. First of all
+there is phpPollUI.php3 which is responsible for providing API functionality
+for voting and showing results.
+
+Furthermore, there is phpPollCollector.php3, a stand-alone module operating
+on behalf of phpPollUI.php3 as soon as a vote is issued. It "collects" the
+vote, checks if a user tries to vote twice for the same poll and then updates
+the database accordingly, issuing an application-specified forwarder to continue
+execution at the desired page.
+
+Last but not least there is phpPollConfig.php3. This file is not really
+special to the application section since it is used in the administration
+module as well, but is of major importance here as every application
+using phpPolls' functions also has to include this file.
+
+phpPollConfig.php3 contains all configurable options, its structure is explained
+in the README file.
+
+Problem A - Session management
+
+Session management is in my opinion a little bit misleading in this context.
+An application generating a user interface for a vote and allowing a user to
+submit a vote just for this poll to a database might lead to thinking about
+session management, but where exactly does the session start and where does it
+end?
+
+For me, the session starts when the user actually submits his vote. Every user
+can have multiple instances of the same voting screen, as long as it's being
+made sure that he doesn't vote twice for the same poll. However, the session
+already ends when the user successfully has submitted his vote, thus, both
+session start and session end are being handled in the same script in one run.
+
+This breaks the session management down to a boolean choice - allow the vote
+or don't. Determining if a user has already voted is being done using a cookie -
+at present the cleanest solution for such a task. The cookie name is being
+determined by a variable prefix (see phpPollConfig.php3) and an ID number
+which is being determined by using the time stamp at which the poll has been
+created.
+
+If this cookie has not been set yet, the vote is being allowed while at the same
+time the cookie will be set. In case the user will try to vote again for the
+same poll, the cookie check will be successful and the vote will be blocked.
+
+In a different environment a similar problem exists: creation and removal of
+polls in the administration module. The same solution applies however,
+creation and removal are events that can be handled in the same run of the
+script, thus, no cookies or similar are used in the administration section
+at all. The script determines what to do next using state variables which
+point out the next action.
+
+Problem B - Access restriction
+
+In order to restrict access to phpPollAdmin, the cleanest and easiest solution to
+me was to leave this to the administrator himself. Implementing hardcoded password
+checks or similar solutions seemed to be more a cludge than providing a better
+security as an .htaccess entry could create.
+
+Problem C - Configurability
+
+This is something I have thought about a while, I have come up with the following:
+making the vital parts be configurable, keeping the rest simple and solid.
+
+To get an overview of what is being configurable, see phpPollConfig.php3 and the
+accompanying README.

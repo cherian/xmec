@@ -1,0 +1,100 @@
+phpPolls Changelog
+
+--- 99/07/25 - phpPolls 1.0.3 released
+* made phpPollCollector.php3 send the header after
+  updating all the databases since otherwise it
+  would not log any IPs due to a user abort
+* made phpPollAdmin::poll_removePoll() aware of
+  displaying a message in the case the poll database
+  is empty
+* made phpPollAdmin::poll_removePosted() remove
+  IP locking and logging information
+* finished testing of IP locking and logging,
+  works
+* finalized documents
+
+--- 99/07/24
+* finalized IP locking and logging functionality
+
+--- 99/07/21
+* fixed phpPollUI::poll_viewResults() not displaying
+  correct results in case $poll_resultBarScale was
+  set to anything different from 1 (thanks, Howie Oakes)
+
+--- 99/07/20
+* started adding IP locking and logging functionality,
+  added constants to phpPollConfig.php3 and modified
+  the documentation accordingly
+
+--- 99/07/16
+* applied patch submitted by Brian M. Dial which fixes
+  phpPolls incorrect handling of poll titles and option
+  texts containing ''' (thanks, Brian)
+* changed phpPollUI::poll_viewResults() so that it will
+  put the resulting bars in a separate table column
+
+--- 99/07/13
+* corrected misnamed file (result.php3 should've been
+  results.php3)
+
+--- 99/07/13 - phpPolls 1.0.2 released
+* added phpPollUI::poll_getResults(), a function coded by
+  Tobias Ratschiller for getting a poll's results
+  in an array
+
+--- 99/06/04
+* fixed phpPollUI::poll_viewResults() generating bad
+  HTML code (didn't confuse any browser up to now but might)
+
+--- 99/06/02 - phpPolls 1.0.1 released
+* added the $poll_usePersistentConnects option
+* changed phpPollUI::poll_viewResults() so that it will
+  display the number of votes for each option in brackets
+  after the percentage
+
+--- 99/05/28
+* fixed the logic in phpPollCollector as it would under
+  certain circumstances return a file with no content,
+  confusing the browsers
+
+--- 99/05/27
+* modified phpPollUI:poll_generateUI() so that it
+  sets the first radio button as default (the poll
+  collector does not work if no vote is being submitted)
+
+--- 99/05/25 - phpPolls 1.0.0 first public release
+* modified phpPollUI::poll_viewResults() so that the
+  number of total votes is displayed in the last data row
+* added new list/vote/results sample scripts
+* promoted script to version 1.0.0
+
+--- 99/05/21 - phpPolls 0.9 third beta released (not public)
+* modified phpPollUI::poll_viewResults() so that it will
+  display floating point percentages to get accurate results
+* added a "Total votes" line to the output in
+  phpPollUI::poll_viewResults()
+* added the $poll_warnCheaters flag in phpPollConfig.php3
+  and adjusted phpPollCollector.php3 to support this
+
+--- 99/05/19
+* added $poll_mySQL_host, $poll_mySQL_user, $poll_mySQL_pwd
+  to globals list in phpPollUI::poll_generateUI()
+
+--- 99/05/16 - phpPolls 0.9 second beta released (not public)
+* added sample homepage hostet at phpWizard.net
+* fixed missing baseurl link in poll_viewResults()
+* changed the forwarding method from printing a meta-tag
+  to using the header() function in phpPollCollector.php3
+
+--- 99/05/14
+* added $poll_mySQL_host, $poll_mySQL_user, $poll_mySQL_pwd
+  to globals list in phpPollAdmin::poll_removePoll()
+* added $poll_mySQL_host, $poll_mySQL_user, $poll_mySQL_pwd
+  to globals list in phpPollAdmin::poll_removePosted()
+* added $poll_mySQL_host, $poll_mySQL_user, $poll_mySQL_pwd
+  to globals list in phpPollAdmin::poll_viewPoll()
+* removed the incorrect primary key statement from the
+  MySQL data table scheme in phpPollAdmin.php3
+
+--- 99/05/10 - phpPolls 0.9 first beta released (not public)
+* initial release of all source files

@@ -1,0 +1,158 @@
+<HTML>
+<HEAD>
+<LINK rel=stylesheet href="style.css" type="text/css">
+<SCRIPT LANGUAGE=javascript>
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',noresizable'
+win = window.open(mypage,myname,settings)
+if(win.window.focus){win.window.focus();}
+}
+</SCRIPT>
+<script>
+//Thumbnail image viewer- 
+//© Dynamic Drive (www.dynamicdrive.com)
+//For full source code, usage terms, and 100's more DHTML scripts, visit http://www.dynamicdrive.com
+var ie=document.all
+var ns=document.layers
+var ns6=document.getElementById&&!document.all
+
+function enlarge(which,e){
+//Render image code for IE 4+ and NS6
+if (ie||ns6){
+crossobj=document.getElementById? document.getElementById("showimage") : document.all.showimage
+if (crossobj.style.visibility=="hidden"){
+crossobj.style.left=ns6? pageXOffset+e.clientX : document.body.scrollLeft+event.clientX
+crossobj.style.top=ns6? pageYOffset+e.clientY : document.body.scrollTop+event.clientY
+crossobj.innerHTML='<div align=right id=drag><b onClick=closepreview()>X</b></div><img alt="Please wait for Image to Load" src="'+which+'">'
+crossobj.style.visibility="visible"
+}
+else
+crossobj.style.visibility="hidden"
+return false
+}
+//Render image code for NS 4
+else if (document.layers){
+if (document.showimage.visibility=="hide"){
+document.showimage.document.write('<a href="#" onMouseover="drag_dropns(showimage)"><img src="'+which+'" border=0></a>')
+document.showimage.document.close()
+document.showimage.left=e.x
+document.showimage.top=e.y
+document.showimage.visibility="show"
+}
+else
+document.showimage.visibility="hide"
+return false
+}
+//if NOT IE 4+ or NS 4, simply display image in full browser window
+else
+return true
+}
+
+function closepreview(){
+crossobj.style.visibility="hidden"
+}
+</script>
+<script language="JavaScript1.2">
+//By Dynamicdrive.com
+
+//drag drop function for NS 4////
+/////////////////////////////////
+
+var nsx,nsy,nstemp
+
+function drag_dropns(name){
+temp=eval(name)
+temp.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP)
+temp.onmousedown=gons
+temp.onmousemove=dragns
+temp.onmouseup=stopns
+}
+
+function gons(e){
+temp.captureEvents(Event.MOUSEMOVE)
+nsx=e.x
+nsy=e.y
+}
+function dragns(e){
+temp.moveBy(e.x-nsx,e.y-nsy)
+return false
+}
+
+function stopns(){
+temp.releaseEvents(Event.MOUSEMOVE)
+}
+
+//drag drop function for IE 4+ and NS6////
+/////////////////////////////////
+
+function drag_drop(e){
+if (ie&&dragapproved){
+crossobj.style.left=tempx+event.clientX-offsetx
+crossobj.style.top=tempy+event.clientY-offsety
+}
+else if (ns6&&dragapproved){
+crossobj.style.left=tempx+e.clientX-offsetx
+crossobj.style.top=tempy+e.clientY-offsety
+}
+return false
+}
+
+function initializedrag(e){
+if (ie&&event.srcElement.id=="drag"||ns6&&e.target.id=="drag"){
+offsetx=ie? event.clientX : e.clientX
+offsety=ie? event.clientY : e.clientY
+
+tempx=parseInt(crossobj.style.left)
+tempy=parseInt(crossobj.style.top)
+
+dragapproved=true
+document.onmousemove=drag_drop
+}
+}
+document.onmousedown=initializedrag
+document.onmouseup=new Function("dragapproved=false")
+</script>
+</HEAD>
+<BODY topmargin=0 leftmargin=0 marginheight = "0" marginwidth = "0" bgcolor="#ffffff">
+<div id="showimage" style="position:absolute;visibility:hidden;border:1px solid black"></div>
+<TABLE BGCOLOR="white" align=left border=0 cellPadding=0 cellSpacing=0 width="615">
+<TR>
+<TD valign=top width=615><img src="images/head_gallery.gif"><BR>
+</TR>
+<TR>
+<TD valign=top width=445 border=0><BR><BR>
+<TABLE BGCOLOR="white" align=center border=0 cellPadding=0 cellSpacing=0 width="430" >
+<TR>
+<TD align=middle><A href="sept21_02.html" class=xmec onclick="NewWindow(this.href,'reports','600','450','yes');return false">Images of the XMEC US East Coast Get Together held on September 21<sup>st</sup> 2002.</a></TD>
+</TR>
+<TR>
+<TD align=middle><a href="images/gallery/p9.jpg" onClick="return enlarge('images/gallery/p9.jpg',event)"><img alt="" src="images/gallery/th_p9.jpg" border="1"></a> <a href="images/gallery/p10.jpg" onClick="return enlarge('images/gallery/p10.jpg',event)"><img alt="" src="images/gallery/th_p10.jpg" border="1"></a> <a href="images/gallery/p11.jpg" onClick="return enlarge('images/gallery/p11.jpg',event)"><img alt="" src="images/gallery/th_p11.jpg" border="1"></a> <a href="images/gallery/p12.jpg" onClick="return enlarge('images/gallery/p12.jpg',event)"><img alt="" src="images/gallery/th_p12.jpg" border="1"></a></TD><BR><BR><BR>
+</TR>
+<TR>
+<TD align=middle><a href="images/gallery/p13.jpg" onClick="return enlarge('images/gallery/p13.jpg',event)"><img alt="" src="images/gallery/th_p13.jpg" border="1"></a> <a href="images/gallery/p14.jpg" onClick="return enlarge('images/gallery/p14.jpg',event)"><img alt="" src="images/gallery/th_p14.jpg" border="1"></a> <a href="images/gallery/p15.jpg" onClick="return enlarge('images/gallery/p15.jpg',event)"><img alt="" src="images/gallery/th_p15.jpg" border="1"></a> <a href="images/gallery/p16.jpg" onClick="return enlarge('images/gallery/p16.jpg',event)"><img alt="" src="images/gallery/th_p16.jpg" border="1"></a></TD><BR><BR><BR>
+</TR>
+<TR>
+<TD align=middle><a href="images/gallery/p17.jpg" onClick="return enlarge('images/gallery/p17.jpg',event)"><img alt="" src="images/gallery/th_p17.jpg" border="1"></a> <a href="images/gallery/p18.jpg" onClick="return enlarge('images/gallery/p18.jpg',event)"><img alt="" src="images/gallery/th_p18.jpg" border="1"></a> <a href="images/gallery/p19.jpg" onClick="return enlarge('images/gallery/p19.jpg',event)"><img alt="" src="images/gallery/th_p19.jpg" border="1"></a> <a href="images/gallery/p20.jpg" onClick="return enlarge('images/gallery/p20.jpg',event)"><img alt="" src="images/gallery/th_p20.jpg" border="1"></a></TD><BR><BR>
+</TR>
+<TR>
+<TD align=left><a href="gallery.html"><img alt="" src="images/back.gif" border="0"></a></TD>
+</TR>
+</TD>
+
+<TR>
+<TD colspan=2>
+      <TABLE align=center border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TR>
+          <TD align=middle height=30 valign=top></TD>
+        </TR>
+        <TR>
+			<TD align=middle height=30 valign=bottom><font face=arial size=-1 color="#999999">Site Powered by &nbsp;<A href="http://www.marlabs.com"><IMG align=absMiddle border=0 src="images/marlabs.jpg"></A> &nbsp;© Copyright 2001</font></TD>
+		</TR>
+      </TABLE>
+</TD></TR>
+</TABLE> 
+</BODY>
