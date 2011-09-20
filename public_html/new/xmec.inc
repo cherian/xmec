@@ -1,6 +1,6 @@
 <?
 ini_set ("include_path", ini_get("include_path") . 
-	":/usr/addr/php/lib/php:/usr163/home/x/m/xmec/settings");
+	":/usr/addr/php/lib/php:/home/cherian/xmec.org/settings");
 require_once 'DB.php';
 require_once ('xmec_defines.inc');
 

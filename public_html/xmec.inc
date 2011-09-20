@@ -1,8 +1,16 @@
 <?
 ini_set ("include_path", ini_get("include_path") . 
-	":/usr/addr/php/lib/php:/usr163/home/x/m/xmec/config");
+	":/usr/addr/php/lib/php:/home/cherian/xmec.org/config");
+
+if (!isset($HTTP_POST_VARS) && isset($_POST)) {
+  $HTTP_POST_VARS = $_POST;
+}
+if (!isset($HTTP_GET_VARS) && isset($_GET)) {
+  $HTTP_GET_VARS = $_GET;
+}
+
 require_once 'DB.php';
-require_once ('xmec.conf');
+require_once 'xmec.conf';
 
 // Preferences
 define ('VISIBLE_PUBLIC', 0);
@@ -69,7 +77,7 @@ class XMEC
         global $__xmec_user;
 
         if (!isset($__xmec_user) ||
-                get_class($__xmec_user) != "xmec_user") {
+                get_class($__xmec_user) != "XMEC_user") {
             $__xmec_user = new XMEC_user();
         }
 
@@ -78,9 +86,12 @@ class XMEC
 
     function authenticate_user()
     {
+	global $__xmec_user;
+
 	session_cache_limiter('nocache');
         session_start();
-        if (session_is_registered("__xmec_user")) {
+        if (isset($_SESSION["__xmec_user"])) {
+	    $__xmec_user = $_SESSION["__xmec_user"];
             $user =& XMEC::getUser();
             return $user->isLoggedIn();
         }
@@ -106,7 +117,7 @@ class XMEC
 
 	session_cache_limiter('nocache');
         session_start();
-        session_register("__xmec_user");
+	$_SESSION["__xmec_user"] = $user;
 
 	$msg = 'Login from ' . $REMOTE_HOST . ' ('. $REMOTE_ADDR . ')';
 	XMEC::log('LOGIN', $user->get('id'), $msg);
@@ -507,7 +518,6 @@ class XMEC_user
 
     function validateUser($pass, $test = false)
     {
-        
         if (!$test && $this->isLoggedIn())
             return TRUE;
 
@@ -530,10 +540,10 @@ class XMEC_user
             $query .= "a, xmec_user b where a.user_id = b.id ";
             $query .= " and b.alias = '$this->alias' and ";
             $query .= " a.password = ";
-            $q2 = "PASSWORD('$pass')";
+            $q2 = "OLD_PASSWORD('$pass')";
         } else {
             $query .= " where user_id = '$this->id' and password = ";
-            $q2 = "PASSWORD('$pass') ";
+            $q2 = "OLD_PASSWORD('$pass') ";
         }
 
 		$qry = $query . $q2;
@@ -568,7 +578,7 @@ class XMEC_user
             }
 
             // change it to PASSWORD..
-            $tmp = "update xmec_auth set password = PASSWORD('$pass') ";
+            $tmp = "update xmec_auth set password = OLD_PASSWORD('$pass') ";
             $tmp .= "where user_id = '$this->id' ";
             $dbh->query($tmp);
         }
@@ -816,11 +826,11 @@ class XMEC_user
     {
         $dbh =& XMEC::getDB();
 
-        $q = "update xmec_auth set password = PASSWORD('$n') where user_id = ";
+        $q = "update xmec_auth set password = OLD_PASSWORD('$n') where user_id = ";
         $q .= "'$this->id'";
 
 		if (!$admin) 
-			$q .= " and password = PASSWORD('$old')";
+			$q .= " and password = OLD_PASSWORD('$old')";
 
         if ($admin || $this->validateUser($old, true)) {
             $res = $dbh->query($q);
