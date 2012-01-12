@@ -1,1 +1,3 @@
 ErrorDocument 404 /missing.php
+php_flag register_globals ON
+
