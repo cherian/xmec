@@ -21,7 +21,8 @@
 <?php
   $show_form = true;
   $fname = "file1";
-
+$upl=$_GET['upl'];
+$del=$_GET['del'];
   if ($upl == "true") {
     if ($sm != "on") {
       $import_script = $import_script . " -n"; # no emails
