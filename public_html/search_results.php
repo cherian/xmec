@@ -29,7 +29,7 @@ if ($res['total'] > $search_count ) {
     echo "<TR>";
     echo "<TD align=left>";
     if ($search_start > 0)
-        echo "<A href=$PHP_SELF?.n=".urlencode($search_fil['name'])."&.w=".urlencode($search_fil['work_type'])."&.c=".urlencode($search_fil['company'])."&.y=".urlencode($search_fil['year'])."&.b=".urlencode($search_fil['branch'])."&.l=".urlencode($search_fil['location'])."&f=".(($current - 1)*$search_count)."&c=$search_count&.s=1 class=link><img src=images/back.gif border=0></A></TD>";
+        echo "<A href=$PHP_SELF?n=".urlencode($search_fil['name'])."&w=".urlencode($search_fil['work_type'])."&c=".urlencode($search_fil['company'])."&y=".urlencode($search_fil['year'])."&b=".urlencode($search_fil['branch'])."&l=".urlencode($search_fil['location'])."&f=".(($current - 1)*$search_count)."&c=$search_count&s=1 class=link><img src=images/back.gif border=0></A></TD>";
     else
 	echo "&nbsp;</TD>";
 
@@ -53,7 +53,7 @@ if ($res['total'] > $search_count ) {
 		if ($i == $current) {
 			echo "<b>";
 		}
-        echo "<A class= flink href=$PHP_SELF?.n=".urlencode($search_fil['name'])."&.w=".urlencode($search_fil['work_type'])."&.c=".urlencode($search_fil['company'])."&.y=".urlencode($search_fil['year'])."&.b=".urlencode($search_fil['branch'])."&.l=".urlencode($search_fil['location'])."&f=".($i*$search_count)."&c=$search_count&.s=1>".($i+1)."</A>&nbsp";
+        echo "<A class= flink href=$PHP_SELF?n=".urlencode($search_fil['name'])."&w=".urlencode($search_fil['work_type'])."&c=".urlencode($search_fil['company'])."&y=".urlencode($search_fil['year'])."&b=".urlencode($search_fil['branch'])."&l=".urlencode($search_fil['location'])."&f=".($i*$search_count)."&c=$search_count&s=1>".($i+1)."</A>&nbsp";
 		if ($i == $current) {
 			echo "</b>";
 		}
@@ -61,7 +61,7 @@ if ($res['total'] > $search_count ) {
     echo "</TD>";
     echo "<TD align=right>";
     if ($search_start + $search_count < $total)
-        echo "<A href=$PHP_SELF?.n=".urlencode($search_fil['name'])."&.w=".urlencode($search_fil['work_type'])."&.c=".urlencode($search_fil['company'])."&.y=".urlencode($search_fil['year'])."&.b=".urlencode($search_fil['branch'])."&.l=".urlencode($search_fil['location'])."&f=".(($current + 1)*$search_count)."&c=$search_count&.s=1 class=link><img src=images/next.gif border=0></A></TD>";
+        echo "<A href=$PHP_SELF?n=".urlencode($search_fil['name'])."&w=".urlencode($search_fil['work_type'])."&c=".urlencode($search_fil['company'])."&y=".urlencode($search_fil['year'])."&b=".urlencode($search_fil['branch'])."&l=".urlencode($search_fil['location'])."&f=".(($current + 1)*$search_count)."&c=$search_count&s=1 class=link><img src=images/next.gif border=0></A></TD>";
     else
 	echo "&nbsp;</TD>";
     echo "</TR>";
@@ -77,7 +77,7 @@ if ($res['total'] > $search_count ) {
 <?php
 for ($i = 0; $i < $res['count']; $i++) {
 	echo "<TR". (($i%2)?" bgcolor=\"#E7F3FB\">":">");
-   	echo "<TD><A href='View Details' onClick=\"javascript:open('view_details.php?.s=1&id=",rawurlencode($res[$i]->id),"','','height=600,width=425,scroll=yes,scrollbars=yes');return false;\" class=link>", htmlentities($res[$i]->name), "</a></TD>\n";
+   	echo "<TD><A href='View Details' onClick=\"javascript:open('view_details.php?s=1&id=",rawurlencode($res[$i]->id),"','','height=600,width=425,scroll=yes,scrollbars=yes');return false;\" class=link>", htmlentities($res[$i]->name), "</a></TD>\n";
 	echo "<TD class=body>". ($res[$i]->company == ""?"&nbsp;":htmlentities($res[$i]->company)) . "</TD>";
 	echo "<TD class=body>" . ($res[$i]->location == ""?"&nbsp;":htmlentities($res[$i]->location)). "</TD>";
 	echo "<TD class=body>" . ($res[$i]->year == ""?"&nbsp;":htmlentities($res[$i]->year)). "</TD>";
@@ -92,7 +92,7 @@ if ($res['total'] > $search_count ) {
     echo "<TR>";
     echo "<TD align=left>";
     if ($search_start > 0)
-        echo "<A href=$PHP_SELF?.n=".urlencode($search_fil['name'])."&.w=".urlencode($search_fil['work_type'])."&.c=".urlencode($search_fil['company'])."&.y=".urlencode($search_fil['year'])."&.b=".urlencode($search_fil['branch'])."&.l=".urlencode($search_fil['location'])."&f=".(($current - 1)*$search_count)."&c=$search_count&.s=1 class=flink><img src=images/back.gif border=0></A></TD>";
+        echo "<A href=$PHP_SELF?n=".urlencode($search_fil['name'])."&w=".urlencode($search_fil['work_type'])."&c=".urlencode($search_fil['company'])."&y=".urlencode($search_fil['year'])."&b=".urlencode($search_fil['branch'])."&l=".urlencode($search_fil['location'])."&f=".(($current - 1)*$search_count)."&c=$search_count&s=1 class=flink><img src=images/back.gif border=0></A></TD>";
     else
 	echo "&nbsp;</TD>";
 
@@ -102,7 +102,7 @@ if ($res['total'] > $search_count ) {
 		if ($i == $current) {
 			echo "<b>";
 		}
-        echo "<A class=flink href=$PHP_SELF?.n=".urlencode($search_fil['name'])."&.w=".urlencode($search_fil['work_type'])."&.c=".urlencode($search_fil['company'])."&.y=".urlencode($search_fil['year'])."&.b=".urlencode($search_fil['branch'])."&.l=".urlencode($search_fil['location'])."&f=".($i*$search_count)."&c=$search_count&.s=1>".($i+1)."</A>&nbsp;";
+        echo "<A class=flink href=$PHP_SELF?n=".urlencode($search_fil['name'])."&w=".urlencode($search_fil['work_type'])."&c=".urlencode($search_fil['company'])."&y=".urlencode($search_fil['year'])."&b=".urlencode($search_fil['branch'])."&l=".urlencode($search_fil['location'])."&f=".($i*$search_count)."&c=$search_count&s=1>".($i+1)."</A>&nbsp;";
 		if ($i == $current) {
 			echo "</b>";
 		}
@@ -110,7 +110,7 @@ if ($res['total'] > $search_count ) {
     echo "</TD>";
     echo "<TD align=right>";
     if ($search_start + $search_count < $total)
-        echo "<A href=$PHP_SELF?.n=".urlencode($search_fil['name'])."&.w=".urlencode($search_fil['work_type'])."&.c=".urlencode($search_fil['company'])."&.y=".urlencode($search_fil['year'])."&.b=".urlencode($search_fil['branch'])."&.l=".urlencode($search_fil['location'])."&f=".(($current + 1)*$search_count)."&c=$search_count&.s=1 class=flink><img src=images/next.gif border=0></A></TD>";
+        echo "<A href=$PHP_SELF?n=".urlencode($search_fil['name'])."&w=".urlencode($search_fil['work_type'])."&c=".urlencode($search_fil['company'])."&y=".urlencode($search_fil['year'])."&b=".urlencode($search_fil['branch'])."&l=".urlencode($search_fil['location'])."&f=".(($current + 1)*$search_count)."&c=$search_count&s=1 class=flink><img src=images/next.gif border=0></A></TD>";
     else
 	echo "&nbsp;</TD>";
     echo "</TR>";

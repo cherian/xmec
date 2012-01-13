@@ -4,19 +4,19 @@
 	include 'header.php';
 
         if ($_s != 1) {
-                $name = trim($name);
-                $worktype = trim($worktype);
-                $company = trim($company);
-                $year = trim($year);
-                $branch = trim($branch);
-                $location = trim($location);
+                $name = trim($_GET['name']);
+                $worktype = trim($_GET['worktype']);
+                $company = trim($_GET['company']);
+                $year = trim($_GET['year']);
+                $branch = trim($_GET['branch']);
+                $location = trim($_GET['location']);
         } else {
-                $name = trim($_n);
-                $worktype = trim($_w);
-                $company = trim($_c);
-                $year = trim($_y);
-                $branch = trim($_b);
-                $location = trim($_l);
+                $name = trim($_GET['n']);
+                $worktype = trim($_GET['w']);
+                $company = trim($_GET['c']);
+                $year = trim($_GET['y']);
+                $branch = trim($_GET['b']);
+                $location = trim($_GET['l']);
         }
 
         $fil = array();
@@ -119,7 +119,7 @@
     <TR>
     <TD></TD>
     <TD align=center>
-      <INPUT name=.s style="HEIGHT: 24px; WIDTH: 101px" type=submit value=Search></TD>
+      <INPUT name=s style="HEIGHT: 24px; WIDTH: 101px" type=submit value=Search></TD>
     <TD align=center><INPUT name=BCancel style="HEIGHT: 24px; WIDTH: 86px" type=reset value=Cancel></TD>
 		<TD></TD> 
 	</TR>
@@ -149,12 +149,12 @@
 
 	$search_fil = $fil;
 	$do_search = TRUE;
-	if ($_s == "Search") {
+	if ($_GET['s'] == "Search") {
             $search_start = 0;
             $search_count = 20;
-	} else if ($_s == 1) {
-	    $search_start = $f;
-	    $search_count = $c;
+	} else if ($_GET['_s'] == 1) {
+	    $search_start = $_GET['f'];
+	    $search_count = $_GET['c'];
 	} else {
 		$do_search = FALSE;
 	}
